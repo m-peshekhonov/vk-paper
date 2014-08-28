@@ -1,0 +1,90 @@
+.header
+{
+    position: fixed;
+    z-index: 5;
+    top: 0;
+
+    width: 100%;
+
+    background: #5780ab;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, .08);
+}
+
+.header__inner
+{
+    width: 1000px;
+    margin: auto;
+
+    white-space: nowrap;
+}
+
+.header__menu,
+.header__logo,
+.header__search
+{
+    display: inline-block;
+
+    vertical-align: middle;
+}
+
+.header__logo
+{
+    font-size: 24px;
+    line-height: 50px;
+
+    width: 124px;
+    height: 25px;
+    margin: 11px 0;
+
+    cursor: pointer;
+
+    color: #fff;
+    background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAHwAAAAZCAYAAADzJ0pXAAADxUlEQVR42u3aWUgVcRTH8VHLtE00W0wJ1AJpoQexBdsL2wgkqoeIkPYgKKLIh2ihSIog1KKysGjBQKKHjCjaaIEiChR6iKKyIoPbZmKapvZ9mIfDwcZpZq4OzD3w4XLP/zpe/7+5//nfezU6OjoiAkTeGYoTqIOb+oxypAR9cv0c+BC8g5dVi+FBn2C/Bn4C4ajyoE+wXwP/hHBUKOgT7NfA2xGWCvoE+zJwB4H1wSDMws0eCLwfpmEJ8npogxiFdMxAPuZgLHr1YKADMANLMBepXgSuReOeg5/faPG4DXiNNtSooEvRDF03kCUeW6iP38XYD9ip5ZiCb+isvuMgesMwFcnNrJq7nfhgjlVhHOzWCBhIwhm0qPF2VCLJaeC7cBLbES36qz0MfL5sisBj8QBW9RUZ3RD4QnRVJTYC3wSzHAeegJei14L36jL9BNFOAq8R/Zmiv8bDwJ+r/kOzv1X19yML+Sqsaw4DL8A603V1Eq0TRmImrmIlxpu9Beq5NyLWIvB4hES/DZeQpH7fK3nyq7H+OK7mKgEGJuOPGFvkJvDP6rpZ5VHgi8X9nxj3jxPhuTrWTrWMDYYONVsotXiOnQdkLRZp2AFZwy2Ot0303iENhqZWtSrovVSjGM9T44/E2FEngachHTEwzNtiUK4Dv4AGcf+Q3CCps/UgDIvLQJ4OXJcHgU/EObztYsnVx2tAJVpFby0MB4FnQ1Y9vgnymn7Fq03bUFR4ELiu0eKxCWqsUB1rghpfFubA16MNshpRZyNwXU1IdBh4HuxWlZtNW4laPmLw1GXgp9RZf83iFV6kjjXXxit8jnDaReAD1Ep0B2MQhYU2X+EXIavYYeA5kLUUGf8wzO2mrRXJYmyPB9fwYqg/gD7UCfVYHWuvuoYn29i0OQ18ImTNE2N2Aq+F3vf8QbaDwPujGfqdgZaCqW4Db1ZL0W4PAh+olsWPZs/AFsg6gCwsQ72elDAGngVZ5zEKubj1H4FnoEn0nyHGTuCKXq0qkI9J5u0xNKDISeCHUYZi5Kqx224DN61Q/VKz3wt3YVUhpIc58ChUo7P6bSdwi1Vxs4PAE1ENy3IQuKUCD9+HR+G+Wu5yzLE4HMEvyGrHdWTCCEfgSiZeqPfQl7HqPwOPwxv1VjTVRuBaX+xDHXS14i6muw08DpNwFu3d/Fl6PHKRj1kYAqObxSAb01RIPS0TUzAb4xHf6WfpkW/LIt+He1Ffgj7Bfg28DOGos0GfYL8GPgy18LLeR/6nzZ+By9DLEYKbCuFMJGx/CvwEBM1fIW4qCJ267h4AAAAASUVORK5CYII=);
+    background-repeat: no-repeat;
+    background-size: 100%;
+}
+
+.header__menu
+{
+    list-style: none;
+}
+
+.header__menu .menu__item
+{
+    display: inline-block;
+}
+
+.header__menu .menu__item .link
+{
+    font-size: 13px;
+
+    padding: 16px 13px;
+
+    -webkit-transition: .2s;
+       -moz-transition: .2s;
+         -o-transition: .2s;
+            transition: .2s;
+
+    color: rgba(255,255,255,.75);
+}
+
+.header__menu .menu__item .link:hover
+{
+    color: #fff;
+}
+
+.header__search
+{
+    font-size: 13px;
+
+    float: right;
+
+    width: 190px;
+    margin: 8px 0 0 0;
+    padding: 7px 10px;
+
+    color: rgba(255, 255, 255, .8);
+    border: 0;
+    border-radius: 2px;
+    background: rgba(255,255,255,.15);
+}

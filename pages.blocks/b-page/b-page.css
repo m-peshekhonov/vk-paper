@@ -1,0 +1,16 @@
+*
+{
+    outline: none;
+}
+
+.b-page
+{
+    /*'Lucida Sans Unicode',*/
+    font: 13px/18px 'Lucida Sans Unicode', Arial, Helvetica, Verdana, sans-serif;
+
+    margin: 0;
+    padding: 0;
+
+    background: #F1F4F6;
+    /*background: #DEE4E9 url(http://zhukov.github.io/webogram/img/bg_tile.png) fixed;*/
+}

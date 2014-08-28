@@ -1,0 +1,23 @@
+.main__left
+{
+    width: 200px;
+}
+
+.main__center
+{
+    width: 540px;
+}
+
+.main__right
+{
+    width: 200px;
+}
+
+.main__left,
+.main__center,
+.main__right
+{
+    display: inline-block;
+
+    vertical-align: top;
+}

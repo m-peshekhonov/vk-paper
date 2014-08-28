@@ -1,0 +1,30 @@
+.user
+{
+    padding-bottom: 13px;
+    margin-bottom: 13px;
+
+    border-bottom: 1px solid rgba(0,0,0,.09);
+}
+
+.user__avatar
+{
+    width: 35px;
+    height: 35px;
+    margin-right: 10px;
+
+    border-radius: 3px;
+    background-size: 100%;
+}
+
+.user__avatar,
+.user__inner
+{
+    display: inline-block;
+
+    vertical-align: top;
+}
+
+.user__name
+{
+    font-weight: 700;
+}

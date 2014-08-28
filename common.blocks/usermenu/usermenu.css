@@ -1,0 +1,15 @@
+.usermenu .usermenu__menu
+{
+    margin-top: -5px;
+
+    list-style: none;
+}
+
+.usermenu__menu .link
+{
+    font-size: 14px;
+
+    display: inline-block;
+
+    padding: 5px;
+}
