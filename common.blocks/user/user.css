@@ -1,18 +1,18 @@
 .user
 {
-    padding-bottom: 13px;
     margin-bottom: 13px;
+    padding-bottom: 13px;
 
     border-bottom: 1px solid rgba(0,0,0,.09);
 }
 
 .user__avatar
 {
-    width: 35px;
-    height: 35px;
+    width: 40px;
+    height: 40px;
     margin-right: 10px;
 
-    border-radius: 3px;
+    border-radius: 2px;
     background-size: 100%;
 }
 
@@ -27,4 +27,6 @@
 .user__name
 {
     font-weight: 700;
+
+    margin: 1px 0 2px;
 }

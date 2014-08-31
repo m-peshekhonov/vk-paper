@@ -19,7 +19,7 @@ BN.addDecl('user').blockTemplate(function(ctx) {
                         block: 'link',
                         mix: { block: 'user', elem: 'settings' },
                         url: '#',
-                        content: 'Мои Настройки'
+                        content: 'Настройки'
                     }
                 ]
             }

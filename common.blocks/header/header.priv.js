@@ -10,13 +10,23 @@ BN.addDecl('header').blockTemplate(function(ctx) {
                     elem: 'logo'
                 },
                 {
+                    block: 'icon',
+                    mix: { block: 'header', elem: 'search' },
+                    mods: { type: 'search' },
+                    content: {
+                        block: 'input',
+                        mix: { block: 'header', elem: 'input' },
+                        value: 'Поиск'
+                    }
+                },
+                {
                     block: 'menu',
                     mix: { block: 'header', elem: 'menu' },
                     content: [
                         {
                             elem: 'item',
                             url: '#',
-                            content: 'О проекте'
+                            content: 'Источники'
                         },
                         {
                             elem: 'item',
@@ -29,11 +39,6 @@ BN.addDecl('header').blockTemplate(function(ctx) {
                             content: 'Выйти'
                         }
                     ]
-                },
-                {
-                    block: 'input',
-                    mix: { block: 'header', elem: 'search' },
-                    value: 'Поиск'
                 }
             ]
         }

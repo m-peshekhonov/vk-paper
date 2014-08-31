@@ -4,15 +4,25 @@
         { block: 'i-router' }
     ],
     shouldDeps: [
+        // data blocks
+        { block: 'i-cookie' },
+        { block: 'i-vk' },
+        { block: 'api-vk' },
+        // Components
         { block: 'link' },
         { block: 'input' },
         { block: 'menu' },
         { block: 'image' },
-        // Общие блоки проекта
+        { block: 'button' },
+        { block: 'icon' },
+        // common block's
         { block: 'header' },
         { block: 'content' },
         { block: 'main' },
+        { block: 'feed' },
         { block: 'user' },
-        { block: 'usermenu' }
+        { block: 'usermenu' },
+        { block: 'box' },
+        { block: 'recommends' }
     ]
 })

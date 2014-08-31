@@ -1,0 +1,28 @@
+.button_theme_light
+{
+    line-height: 27px;
+
+    height: 28px;
+    padding-left: 13px;
+
+    cursor: pointer;
+    -webkit-transition: .1s;
+       -moz-transition: .1s;
+         -o-transition: .1s;
+            transition: .1s;
+
+    border-radius: 3px;
+    box-shadow: inset 0 0 0 1px rgba(0, 0, 0, .2);
+}
+
+.button_theme_light:hover
+{
+    box-shadow: inset 0 0 0 1px rgba(0, 0, 0, .3);
+}
+
+.button_arrow_yes
+{
+    background: url(http://serp.kovchiy.isam.yandex.ru/blocks.common/button/i/right-m.svg);
+    background-repeat: no-repeat;
+    background-position: 94% 50%;
+}

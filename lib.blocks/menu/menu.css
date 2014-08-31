@@ -1,0 +1,12 @@
+.menu__icon,
+.menu__text
+{
+    display: inline-block;
+}
+
+.menu__icon
+{
+    padding-right: 10px;
+
+    color: #BACCDD;
+}

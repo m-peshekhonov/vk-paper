@@ -1,16 +1,19 @@
 .main__left
 {
-    width: 200px;
+    width: 185px;
+    margin: 15px 20px 0 0;
 }
 
 .main__center
 {
-    width: 540px;
+    width: 570px;
+    margin-right: 20px;
 }
 
 .main__right
 {
     width: 200px;
+    margin-top: 9px;
 }
 
 .main__left,

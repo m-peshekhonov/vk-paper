@@ -1,5 +1,5 @@
 /*
-    
+
     BN('i-global').timeAgo('1327611110417', true) -  выводит время в красивом формате.
     Второй параметр - слово "Назад".
     Результат строка: '43 мин. назад' или '43 мин'.
@@ -62,6 +62,32 @@ BN.addDecl('i-global').staticProp({
         }
 
         return(words[index]);
+    },
+
+    linkify: function(text) {
+        var pattern = /([-a-zA-Z0-9@:%_\+.~#?&\/\/=]{2,256}\.[a-z]{2,4}\b(\/?[-a-zA-Z0-9@:%_\+.~#?&\/\/=]*)?)/gi;
+
+        return text.replace(pattern, '<a class="link" href="$1" target="_blank">$1</a>');
+    },
+
+    cutText: function(text, length) {
+
+        function lastWord(str) {
+            return str.split(/[\s\!,\.\?]+/g).pop();
+        }
+
+        if(text.length > length) {
+            var firstText = text.slice(0, length),
+                lastWord = lastWord(firstText),
+                secondText = text.slice(length, text.length),
+                allText = firstText + '<div class="box__text-hide box__text-hide_hide_yes">' + secondText + '</div>';
+
+            // console.log(firstText.replace(lastWord, '...'));
+
+            return allText;
+        } else {
+            return text;
+        }
     }
 
 });

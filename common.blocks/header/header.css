@@ -46,6 +46,8 @@
 
 .header__menu
 {
+    margin: 0 0 0 91px;
+
     list-style: none;
 }
 
@@ -58,33 +60,47 @@
 {
     font-size: 13px;
 
-    padding: 16px 13px;
+    padding: 16px;
 
     -webkit-transition: .2s;
        -moz-transition: .2s;
          -o-transition: .2s;
             transition: .2s;
 
-    color: rgba(255,255,255,.75);
+    color: rgba(255,255,255,.8);
 }
 
 .header__menu .menu__item .link:hover
 {
+    text-decoration: none;
+
     color: #fff;
+}
+
+.header__input
+{
+    font-size: 13px;
+
+    width: 170px;
+    margin: 0 5px 0 81px;
+    padding: 6px 10px;
+
+    color: rgba(255, 255, 255, .7);
+    border: 0;
+    border-radius: 2px;
+    background: rgba(255,255,255,.15);
 }
 
 .header__search
 {
-    font-size: 13px;
+    position: relative;
+}
 
-    float: right;
+.header__search:before
+{
+    position: absolute;
+    top: 7px;
+    right: 10px;
 
-    width: 190px;
-    margin: 8px 0 0 0;
-    padding: 7px 10px;
-
-    color: rgba(255, 255, 255, .8);
-    border: 0;
-    border-radius: 2px;
-    background: rgba(255,255,255,.15);
+    color: rgba(255, 255, 255, .5);
 }

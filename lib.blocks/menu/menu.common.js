@@ -12,7 +12,18 @@ BN.addDecl('menu').blockTemplate(function(ctx) {
                 block: 'link',
                 url: json.url,
                 target: json.target,
-                content: ctx.content()
+                content: [
+                    json.icon && {
+                        block: 'icon',
+                        mix: { block: 'menu', elem: 'icon' },
+                        mods: { type: json.icon }
+                    },
+                    {
+                        block: 'menu',
+                        elem: 'text',
+                        content: ctx.content()
+                    }
+                ]
             }, true);
     }
 
