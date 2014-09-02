@@ -62,13 +62,42 @@
 
 .box__images-inner
 {
+    font-size: 0;
+
     margin-top: 10px;
+
+    text-align: justify;
+}
+
+.box__images-inner:after
+{
+    display: inline-block;
+
+    width: 100%;
+
+    content: '';
 }
 
 .box__post-image
 {
-    max-width: 470px;
-    max-height: 350px;
+    display: none;
+    overflow: hidden;
+
+    padding: 0 1px 1px 0;
+
+    cursor: pointer;
+    -webkit-transition: .15s;
+       -moz-transition: .15s;
+         -o-transition: .15s;
+            transition: .15s;
+    vertical-align: top;
+
+    background-size: cover;
+}
+
+.box__post-image:hover
+{
+    opacity: .8 !important;
 }
 
 .box__show-more
@@ -92,7 +121,7 @@
 
 .box__text-inner:hover ~ .box__show-more
 {
-    color: #5A7FA7;
+    color: #5a7fa7;
 }
 
 .box__text-hide_hide_yes

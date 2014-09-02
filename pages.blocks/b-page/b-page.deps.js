@@ -1,7 +1,8 @@
 ({
     mustDeps: [
         { block: 'i-global' },
-        { block: 'i-router' }
+        { block: 'i-router' },
+        { block: 'i-collage' }
     ],
     shouldDeps: [
         // data blocks

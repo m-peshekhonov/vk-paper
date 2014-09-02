@@ -1,12 +1,19 @@
 BN.addDecl('box').onSetMod({
     js: function() {
 
-        var text = this.elem('text'),
+        var _this = this,
+            text = this.elem('text'),
             texthide = this.elem('text-hide');
 
         this.bindTo(text, 'click', function() {
             this.delMod(texthide, 'hide');
             this.setMod(this.elem('show-more'), 'hide', 'yes');
+        });
+
+
+        BN('i-collage').init(_this.elem('images-inner'), {
+            'fadeSpeed' : 2000,
+            'targetHeight' : 150
         });
 
     }
@@ -75,20 +82,17 @@ BN.addDecl('box').onSetMod({
     var json = ctx.json(),
         data = json.data;
 
-        console.log(data);
-
         if(!data) return;
 
         return [
             {
                 elem: 'images-inner',
+                mix: { block: 'Collage' },
                 content: [
                     data.map(function(item) {
-                        var isPhoto = item.type === 'photo';
-
-                        return  isPhoto && {
+                        return item.type === 'photo' && {
                             elem: 'post-image',
-                            src: isPhoto ? (item.photo.src_big ||item.photo.src) : ''
+                            src: item.photo.src_big ||item.photo.src
                         };
                     })
                 ]

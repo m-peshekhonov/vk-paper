@@ -5,11 +5,11 @@ BN.addDecl('feed').onSetMod({
 }).instanceProp({
     loadPortion: function() {
 
-        var testGroups = 'g15323631, g11283947, g7174154, g3940953, g63102511';
+        // var testGroups = 'g15323631, g11283947, g7174154, g3940953, g27725748';
 
-        BN('api-vk')._getPosts(testGroups).then(function(data) {
+        BN('api-vk')._getPosts('g63102511').then(function(data) {
 
-            console.log(data);
+            // console.log(data);
 
             var groupsId = [],
                 items = data.items,
