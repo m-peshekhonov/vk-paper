@@ -16,21 +16,17 @@ BN.addDecl('main').blockTemplate(function(ctx) {
             },
             {
                 elem: 'center',
-                content: [
-                    {
-                        block: 'feed',
-                        js: true
-                    }
-                ]
+                content: {
+                    block: 'feed',
+                    js: true
+                }
             },
             {
                 elem: 'right',
-                content: [
-                    {
-                        block: 'recommends',
-                        js: true
-                    }
-                ]
+                content: {
+                    block: 'recommends',
+                    js: true
+                }
             }
     ]);
 

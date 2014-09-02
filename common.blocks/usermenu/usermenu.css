@@ -1,6 +1,6 @@
 .usermenu .usermenu__menu
 {
-    margin: -5px 0 0 -30px;
+    margin: -5px 0 0 -40px;
 
     list-style: none;
 }
@@ -11,11 +11,17 @@
 
     display: block;
 
-    padding: 7px 10px;
+    padding: 7px 10px 7px 16px;
+
+    border-radius: 2px;
 }
 
-.usermenu__menu .link:hover,
+.usermenu__menu .link:hover
+{
+    background: #e6e9ee;
+}
+
 .usermenu__menu .link:hover .icon
 {
-    color: #404040;
+    color: #5a7fa7;
 }

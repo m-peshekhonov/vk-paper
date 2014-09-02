@@ -1,5 +1,5 @@
 BN.addDecl('recommends').onSetMod({
-    'js': function() {
+    js: function() {
         this.loadPortion();
     }
 }).instanceProp({
@@ -41,7 +41,7 @@ BN.addDecl('recommends').onSetMod({
     }
 }).elemTemplate({
 
-    'item': function(ctx) {
+    item: function(ctx) {
         var json = ctx.json(),
             data = json.data,
             isProfile = data.type === 'profile',

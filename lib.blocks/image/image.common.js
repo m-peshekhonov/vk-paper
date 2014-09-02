@@ -1,3 +1,12 @@
 BN.addDecl('image').blockTemplate(function(ctx) {
-    ctx.attr('style ', 'background-image: url(' +  ctx.json().src + ')');
+    var json = ctx.json();
+
+    ctx.attr('style ', 'background-image: url(' +  json.src + ')');
+
+    if (json.url) {
+        ctx
+            .tag('a')
+            .attr('href', json.url)
+            .attr('target', json.target);
+    }
 });

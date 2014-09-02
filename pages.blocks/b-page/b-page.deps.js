@@ -14,6 +14,7 @@
         { block: 'input' },
         { block: 'menu' },
         { block: 'image' },
+        { block: 'picture' },
         { block: 'button' },
         { block: 'icon' },
         // common block's

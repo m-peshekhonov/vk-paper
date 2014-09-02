@@ -5,15 +5,15 @@ BN.addDecl('api-vk').staticProp({
     _user: function() {
         var promise = Vow.promise();
 
-        VK.Api.call('users.get', 
-            { 
+        VK.Api.call('users.get',
+            {
                 uids: this._userID,
                 fields: 'photo_100, domain'
-            }, 
+            },
                 function(r) {
                 if(r.response) {
                     promise.fulfill(r.response[0]);
-                } 
+                }
             });
 
         return promise;
@@ -22,16 +22,16 @@ BN.addDecl('api-vk').staticProp({
     _suggestionsGroups: function(count) {
         var promise = Vow.promise();
 
-        VK.Api.call('newsfeed.getSuggestedSources', 
-            { 
+        VK.Api.call('newsfeed.getSuggestedSources',
+            {
                 count: count,
                 fields: 'photo_100',
                 shuffle: 1 // перемешивать возвращаемый список.
-            }, 
+            },
             function(r) {
                 if(r.response) {
                     promise.fulfill(r.response);
-                } 
+                }
             });
 
         return promise;
@@ -40,16 +40,16 @@ BN.addDecl('api-vk').staticProp({
     _getPosts: function (posts) {
         var promise = Vow.promise();
 
-        VK.Api.call('newsfeed.get', 
-            { 
+        VK.Api.call('newsfeed.get',
+            {
                 source_ids: posts,
-                count: 15,
+                count: 10,
                 filters: 'post'
-            }, 
+            },
             function(r) {
                 if(r.response) {
                     promise.fulfill(r.response);
-                } 
+                }
             });
 
         return promise;
@@ -58,14 +58,14 @@ BN.addDecl('api-vk').staticProp({
     _groupInfo: function(groupIds) {
         var promise = Vow.promise();
 
-        VK.Api.call('groups.getById', 
-            { 
+        VK.Api.call('groups.getById',
+            {
                 group_ids: groupIds
-            }, 
+            },
             function(r) {
                 if(r.response) {
                     promise.fulfill(r.response);
-                } 
+                }
             });
 
         return promise;

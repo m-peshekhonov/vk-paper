@@ -88,6 +88,21 @@ BN.addDecl('i-global').staticProp({
         } else {
             return text;
         }
+    },
+
+    onImagesLoaded: function(container, callback) {
+        var images = container.find('img').length;
+
+        if(!images) callback();
+
+        $('img', container).each(function () {
+            $(this).one('load error', function () {
+                images--;
+                images == 0 && callback();
+            });
+
+            this.complete && $(this).load();
+        });
     }
 
 });

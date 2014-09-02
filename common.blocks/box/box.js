@@ -1,27 +1,27 @@
 BN.addDecl('box').onSetMod({
-    js: function() {
+    js: function () {
 
         var _this = this,
             text = this.elem('text'),
-            texthide = this.elem('text-hide');
+            texthide = this.elem('text-hide'),
+            imagesContainer = _this.elem('images-inner');
 
-        this.bindTo(text, 'click', function() {
+        this.bindTo(text, 'click', function () {
             this.delMod(texthide, 'hide');
             this.setMod(this.elem('show-more'), 'hide', 'yes');
         });
 
-
-        BN('i-collage').init(_this.elem('images-inner'), {
-            'fadeSpeed' : 2000,
-            'targetHeight' : 150
+        BN('i-global').onImagesLoaded(imagesContainer, function () {
+            BN('i-collage').init(imagesContainer);
         });
 
     }
-}).blockTemplate(function(ctx) {
+}).blockTemplate(function (ctx) {
 
     var json = ctx.json(),
-        data = json.data;
-        text = BN('i-global').linkify(data.text), // обрабатываем ссылки
+        data = json.data,
+        text = BN('i-global').linkify(data.text),
+        urlSrcVK = '//vk.com/' + data.screen_name,
         isLinkAttach = data.attachment && data.attachment.type === 'link';
 
     ctx.js(true);
@@ -30,6 +30,8 @@ BN.addDecl('box').onSetMod({
         {
             block: 'image',
             mix: { block: 'box', elem: 'avatar' },
+            url: urlSrcVK,
+            target: '_blank',
             src: data.photo
         },
         {
@@ -37,7 +39,7 @@ BN.addDecl('box').onSetMod({
             content: [
                 {
                     block: 'link',
-                    url: '//vk.com/' + data.screen_name,
+                    url: urlSrcVK,
                     target: '_blank',
                     mix: { block: 'box', elem: 'title' },
                     content: data.name || ''
@@ -51,7 +53,6 @@ BN.addDecl('box').onSetMod({
                     content: [
                         {
                             elem: 'text-inner',
-                            // Обрезаем текст, если больше 300 символов и обрабатываем ссылки
                             content: BN('i-global').cutText(text, 500)
                         },
                         text.length > 500 && {
@@ -77,33 +78,29 @@ BN.addDecl('box').onSetMod({
     ]);
 
 }).elemTemplate({
-
     images: function (ctx) {
-    var json = ctx.json(),
-        data = json.data;
+        var json = ctx.json(),
+            data = json.data;
 
         if(!data) return;
 
-        return [
-            {
-                elem: 'images-inner',
-                mix: { block: 'Collage' },
-                content: [
-                    data.map(function(item) {
-                        return item.type === 'photo' && {
-                            elem: 'post-image',
-                            src: item.photo.src_big ||item.photo.src
-                        };
-                    })
-                ]
-            }
-        ]
-
-    },
-
-    'post-image': function (ctx) {
-        ctx.tag('img').attr('src', ctx.json().src);
+        return {
+            elem: 'images-inner',
+            content: [
+                data.map(function(item) {
+                    return item.type === 'photo' && {
+                        block: 'link',
+                        mix: { block: 'box', elem: 'photo-wrapper' },
+                        url: '#',
+                        content: {
+                            block: 'picture',
+                            mix: { block: 'box', elem: 'post-image' },
+                            src: item.photo.src_big || item.photo.src
+                        }
+                    };
+                })
+            ]
+        }
     }
-
 });
 

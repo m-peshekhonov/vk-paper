@@ -1,20 +1,18 @@
 BN.addDecl('feed').onSetMod({
-    'js': function() {
+    js: function() {
         this.loadPortion();
     }
 }).instanceProp({
     loadPortion: function() {
 
-        // var testGroups = 'g15323631, g11283947, g7174154, g3940953, g27725748';
+        var testGroups = 'g27725748, g18099999, g76477496';
 
-        BN('api-vk')._getPosts('g63102511').then(function(data) {
+        BN('api-vk')._getPosts(testGroups).then(function(data) {
 
-            // console.log(data);
-
-            var groupsId = [],
-                items = data.items,
+            var _this = this,
+                groupsId = [],
                 news = [],
-                _this = this;
+                items = data.items;
 
             data.items.forEach(function(item) {
                 groupsId.push(String(item.source_id).slice(1));
