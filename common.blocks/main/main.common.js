@@ -7,7 +7,8 @@ BN.addDecl('main').blockTemplate(function(ctx) {
                 elem: 'left',
                 content: [
                     {
-                        block: 'user'
+                        block: 'user',
+                        js: true
                     },
                     {
                         block: 'usermenu'
