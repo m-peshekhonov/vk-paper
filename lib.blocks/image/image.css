@@ -1,0 +1,12 @@
+.image_link_yes
+{
+    -webkit-transition: .15s;
+       -moz-transition: .15s;
+         -o-transition: .15s;
+            transition: .15s;
+}
+
+.image_link_yes:hover
+{
+    opacity: .8 !important;
+}

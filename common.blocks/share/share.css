@@ -1,0 +1,70 @@
+.share
+{
+    margin-top: 10px;
+
+    text-align: right;
+}
+
+.share__item
+{
+    position: relative;
+
+    display: inline-block;
+
+    margin: 0 5px 0 0;
+}
+
+.share__item:last-child
+{
+    margin-right: 0;
+}
+
+.share__item .link
+{
+    font-size: 14px;
+
+    display: inline-block;
+
+    padding: 3px 11px 4px 11px;
+
+    cursor: pointer;
+    vertical-align: middle;
+
+    border-radius: 2px;
+}
+
+.share__item .link:hover
+{
+    background: #f0f4f9;
+}
+
+.share__icon,
+.share__item-text,
+.share__item-count
+{
+    display: inline-block;
+
+    vertical-align: middle;
+}
+
+.share__icon
+{
+    margin-left: 4px;
+
+    color: #baccdd;
+}
+
+.share__item_type_like .share__icon
+{
+    margin: 0 0 -2px 2px;
+}
+
+.share__item_type_like .share__item-count
+{
+    margin-left: 2px;
+}
+
+.share__item-count
+{
+    margin-left: 4px;
+}

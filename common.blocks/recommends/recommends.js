@@ -30,14 +30,12 @@ BN.addDecl('recommends').onSetMod({
 
 }).elemTemplate({
     button: function (ctx) {
-        return [
-            {
-                block: 'button',
-                mods: { theme: 'light', arrow: 'yes' },
-                mix: { block: 'recommends', elem: 'button' },
-                content: 'Другие сообщества'
-            }
-        ]
+        return {
+            block: 'button',
+            mods: { theme: 'light', arrow: 'yes' },
+            mix: { block: 'recommends', elem: 'button' },
+            content: 'Другие рекомендации'
+        }
     }
 }).elemTemplate({
 

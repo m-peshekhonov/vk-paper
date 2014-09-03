@@ -39,8 +39,6 @@ BN.addDecl('user').onSetMod({
                     data: data
                 };
 
-            console.log(data);
-
             BN('i-content').update(this.domElem, info);
         }.bind(this));
     }

@@ -65,7 +65,7 @@ BN.addDecl('i-global').staticProp({
     },
 
     linkify: function(text) {
-        var pattern = /([-a-zA-Z0-9@:%_\+.~#?&\/\/=]{2,256}\.[a-z]{2,4}\b(\/?[-a-zA-Z0-9@:%_\+.~#?&\/\/=]*)?)/gi;
+        var pattern = /(\b(https?|ftp|file):\/\/[-A-Z0-9+&@#\/%?=~_|!:,.;]*[-A-Z0-9+&@#\/%=~_|])/ig;
 
         return text.replace(pattern, '<a class="link" href="$1" target="_blank">$1</a>');
     },
@@ -102,7 +102,22 @@ BN.addDecl('i-global').staticProp({
             });
 
             this.complete && $(this).load();
-        });
+         });
+    },
+
+    truncate: function(str, maxlength) {
+        if (str.length > maxlength) {
+            return str.slice(0, maxlength - 3) + '...';
+        }
+
+        return str;
+    },
+
+    getDomain: function(str) {
+        var match = str.match(/(?:https?:\/\/)?(?:www\.)?(.*?)\//);
+
+        return match[match.length-1];
     }
+
 
 });

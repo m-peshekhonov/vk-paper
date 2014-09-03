@@ -70,6 +70,8 @@
 .icon_type_picture:before { content: '\e81e'; } /* '' */
 .icon_type_picture2:before { content: '\e81f'; } /* '' */
 .icon_type_search:before { content: '\e80c'; } /* '' */
+.icon_type_like:before { content: '\e801'; } /* '' */
+.icon_type_share:before { content: '\e80d'; } /* '' */
 
 
 .icon-heart:before { content: '\e800'; } /* '' */

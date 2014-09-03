@@ -25,6 +25,8 @@
         { block: 'user' },
         { block: 'usermenu' },
         { block: 'box' },
-        { block: 'recommends' }
+        { block: 'recommends' },
+        { block: 'source-block' },
+        { block: 'share' }
     ]
 })

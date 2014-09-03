@@ -8,5 +8,8 @@ BN.addDecl('image').blockTemplate(function(ctx) {
             .tag('a')
             .attr('href', json.url)
             .attr('target', json.target);
+
+        ctx.mod('link', 'yes');
     }
+
 });

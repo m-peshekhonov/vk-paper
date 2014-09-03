@@ -19,6 +19,7 @@
     cursor: pointer;
 
     border-radius: 2px;
+    background-color: rgba(0, 0, 0, .1);
     background-repeat: no-repeat;
     background-size: 100%;
 }
@@ -70,9 +71,6 @@
 .box__photo-wrapper
 {
     display: inline-block;
-
-    vertical-align: bottom;
-
     overflow: hidden;
 
     padding: 0 1px 1px 0;
@@ -81,6 +79,7 @@
        -moz-transition: .15s;
          -o-transition: .15s;
             transition: .15s;
+    vertical-align: bottom;
 }
 
 .box__photo-wrapper:hover
@@ -131,4 +130,54 @@
 .box__show-more_hide_yes
 {
     display: none;
+}
+
+.box__docs-inner
+{
+    margin-top: 5px;
+}
+
+.box__doc-wrapper
+{
+    position: relative;
+
+    display: inline-block;
+    overflow: hidden;
+
+    width: 110px;
+    height: 90px;
+    margin: 0 8px 6px 0;
+
+    vertical-align: top;
+
+    background: #f5f6f7;
+}
+
+.box__post-doc-title
+{
+    font-size: 11px;
+    position: absolute;
+    bottom: 0;
+
+    width: 98px;
+    padding: 0 6px;
+
+    text-align: center;
+
+    color: #fff;
+    background: rgba(0,0,0,.6);
+
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.box__doc-wrapper:nth-child(4n)
+{
+    margin-right: 0;
+}
+
+.box__post-doc
+{
+    width: 100%;
 }

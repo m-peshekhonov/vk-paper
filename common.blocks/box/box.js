@@ -22,7 +22,27 @@ BN.addDecl('box').onSetMod({
         data = json.data,
         text = BN('i-global').linkify(data.text),
         urlSrcVK = '//vk.com/' + data.screen_name,
-        isLinkAttach = data.attachment && data.attachment.type === 'link';
+        attach = {},
+        share = {
+            likes: data.likes,
+            reposts: data.reposts
+        }
+        docs = [];
+
+        data.attachments.forEach(function(item){
+            if(item.type == 'photo') {
+                attach.isPhoto = true;
+            }
+            if(item.type == 'link') {
+                attach.isLink = true;
+                attach.link = item.link;
+            }
+
+            if(item.type == 'doc') {
+                attach.isDoc = true;
+                docs.push(item);
+            }
+        });
 
     ctx.js(true);
 
@@ -61,17 +81,22 @@ BN.addDecl('box').onSetMod({
                         }
                     ]
                 },
-                isLinkAttach && {
-                    block: 'attach-post-link',
-                    data: data.attachment.link
-                },
-                {
+                attach.isPhoto && {
                     elem: 'images',
-                    data: data.attachments || ''
+                    data: data.attachments
+                },
+                attach.isDoc && {
+                    elem: 'docs',
+                    data: docs
+                },
+                attach.isLink && {
+                    block: 'source-block',
+                    data: attach.link
                 },
                 {
                     block: 'share',
-                    mix: { block: 'box', elem: 'share' }
+                    mix: { block: 'box', elem: 'share' },
+                    data: share
                 }
             ]
         }
@@ -97,6 +122,41 @@ BN.addDecl('box').onSetMod({
                             mix: { block: 'box', elem: 'post-image' },
                             src: item.photo.src_big || item.photo.src
                         }
+                    };
+                })
+            ]
+        }
+    },
+
+    docs: function (ctx) {
+        var json = ctx.json(),
+            data = json.data;
+
+        console.log(data);
+
+        if(!data) return;
+
+        return {
+            elem: 'docs-inner',
+            content: [
+                data.map(function(item) {
+                    return item.type === 'doc' && {
+                        block: 'link',
+                        mix: { block: 'box', elem: 'doc-wrapper' },
+                        target: '_blank',
+                        url: item.doc.url,
+                        content: [
+                            {
+                                block: 'picture',
+                                mix: { block: 'box', elem: 'post-doc' },
+                                src: item.doc.thumb || item.doc.thumb_s
+                            },
+                            {
+                               block: 'box',
+                               elem: 'post-doc-title',
+                               content: item.doc.title
+                            }
+                        ]
                     };
                 })
             ]

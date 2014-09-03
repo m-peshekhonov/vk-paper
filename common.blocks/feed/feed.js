@@ -5,7 +5,7 @@ BN.addDecl('feed').onSetMod({
 }).instanceProp({
     loadPortion: function() {
 
-        var testGroups = 'g27725748, g18099999, g76477496';
+        var testGroups = 'g44384363';
 
         BN('api-vk')._getPosts(testGroups).then(function(data) {
 
