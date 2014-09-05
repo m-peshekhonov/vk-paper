@@ -26,10 +26,11 @@ BN.addDecl('box').onSetMod({
         share = {
             likes: data.likes,
             reposts: data.reposts
-        }
-        docs = [];
+        },
+        docs = [],
+        dataAttaches = data.attachments;
 
-        data.attachments.forEach(function(item){
+        dataAttaches && dataAttaches.forEach(function(item){
             if(item.type == 'photo') {
                 attach.isPhoto = true;
             }
@@ -113,6 +114,7 @@ BN.addDecl('box').onSetMod({
             elem: 'images-inner',
             content: [
                 data.map(function(item) {
+                    console.log(item);
                     return item.type === 'photo' && {
                         block: 'link',
                         mix: { block: 'box', elem: 'photo-wrapper' },
@@ -120,7 +122,7 @@ BN.addDecl('box').onSetMod({
                         content: {
                             block: 'picture',
                             mix: { block: 'box', elem: 'post-image' },
-                            src: item.photo.src_big || item.photo.src
+                            src: item.photo.photo_807 || item.photo.photo_604
                         }
                     };
                 })
@@ -131,8 +133,6 @@ BN.addDecl('box').onSetMod({
     docs: function (ctx) {
         var json = ctx.json(),
             data = json.data;
-
-        console.log(data);
 
         if(!data) return;
 

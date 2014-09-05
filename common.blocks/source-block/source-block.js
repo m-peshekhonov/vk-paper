@@ -16,6 +16,7 @@ BN.addDecl('source-block').blockTemplate(function(ctx) {
                 imageSrc && {
                     block: 'image',
                     mix: { block: 'source-block', elem: 'image' },
+                    target: '_blank',
                     url: data.url,
                     src: imageSrc
                 },

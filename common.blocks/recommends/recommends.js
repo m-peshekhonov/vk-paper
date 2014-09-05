@@ -11,7 +11,6 @@ BN.addDecl('recommends').onSetMod({
         });
 
         BN('api-vk')._suggestionsGroups(10).then(function(data) {
-
             var groups = data.map(function(item) {
                 return {
                     block: 'recommends',

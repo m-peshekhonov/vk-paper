@@ -5,7 +5,7 @@ BN.addDecl('feed').onSetMod({
 }).instanceProp({
     loadPortion: function() {
 
-        var testGroups = 'g44384363';
+        var testGroups = 'g44384363, g27725748, g15755094';
 
         BN('api-vk')._getPosts(testGroups).then(function(data) {
 
@@ -19,22 +19,21 @@ BN.addDecl('feed').onSetMod({
             });
 
             BN('api-vk')._groupInfo(groupsId).then(function(data) {
-
                     data.forEach(function(gItem) {
 
                         items.forEach(function(item) {
                             var itemGID = String(item.source_id).slice(1);
 
-                            if(+itemGID === gItem.gid) {
+
+                            if(+itemGID === gItem.id) {
                                 item.name = gItem.name;
                                 item.screen_name = gItem.screen_name;
-                                item.photo = gItem.photo;
+                                item.photo = gItem.photo_100;
                             }
 
-                        })
+                        });
 
                     });
-
                 var news = items.map(function(item) {
                     return {
                         block: 'box',

@@ -32,11 +32,11 @@ BN.addDecl('user').onSetMod({
     }
 }).instanceProp({
     loadInfo: function() {
-        BN('api-vk')._user().then(function(data) {
+        BN('api-vk').getUser().then(function(data) {
             var info = {
                     block: 'user',
                     elem: 'inner',
-                    data: data
+                    data: data[0]
                 };
 
             BN('i-content').update(this.domElem, info);
