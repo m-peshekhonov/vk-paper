@@ -27,6 +27,7 @@
         { block: 'box' },
         { block: 'recommends' },
         { block: 'source-block' },
-        { block: 'share' }
+        { block: 'share' },
+        { block: 'loader' }
     ]
 })

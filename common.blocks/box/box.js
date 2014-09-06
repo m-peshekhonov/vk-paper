@@ -114,7 +114,6 @@ BN.addDecl('box').onSetMod({
             elem: 'images-inner',
             content: [
                 data.map(function(item) {
-                    console.log(item);
                     return item.type === 'photo' && {
                         block: 'link',
                         mix: { block: 'box', elem: 'photo-wrapper' },

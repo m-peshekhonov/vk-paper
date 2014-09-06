@@ -1,8 +1,14 @@
 BN.addDecl('feed').onSetMod({
     js: function() {
-        this.loadPortion();
+        this._page = this.findBlockOutside('b-page');
+
+        this.firstLoad();
     }
 }).instanceProp({
+    firstLoad: function() {
+        this._page.setMod('loading', 'yes');
+        this.loadPortion();
+    },
     loadPortion: function() {
 
         var testGroups = 'g44384363, g27725748, g15755094';
@@ -43,10 +49,14 @@ BN.addDecl('feed').onSetMod({
 
                 BN('i-content')['append'](_this.domElem, news);
 
+                setTimeout(function () {
+                    _this._page.delMod('loading');
+                }, 600);
             });
 
         }.bind(this)).fail(function(err) {
-            console.log('fail')
+            console.log('fail');
+            this._page.delMod('loading');
         }.bind(this));
 
     }

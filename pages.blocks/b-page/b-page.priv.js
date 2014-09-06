@@ -37,7 +37,10 @@ BN.addDecl('b-page').blockTemplate(function(ctx) {
             {
                 block: 'header'
             },
-            ctx.content()
+            ctx.content(),
+            {
+                block: 'loader'
+            }
         ]
     }, true);
 });

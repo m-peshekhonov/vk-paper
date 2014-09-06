@@ -44,6 +44,11 @@
     background-size: 100%;
 }
 
+.header__logo:active
+{
+    margin: 12px 0 10px;
+}
+
 .header__menu
 {
     margin: 0 0 0 91px;
