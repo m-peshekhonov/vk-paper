@@ -4,7 +4,8 @@ BN.addDecl('box').onSetMod({
         var _this = this,
             text = this.elem('text'),
             texthide = this.elem('text-hide'),
-            imagesContainer = _this.elem('images-inner');
+            imagesContainer = _this.elem('images-inner'),
+            albumsContainer = _this.elem('albums-photos');
 
         this.bindTo(text, 'click', function () {
             this.delMod(texthide, 'hide');
@@ -12,9 +13,12 @@ BN.addDecl('box').onSetMod({
         });
 
         BN('i-global').onImagesLoaded(imagesContainer, function () {
-            BN('i-collage').init(imagesContainer);
+            BN('i-collage').init(imagesContainer, 150);
         });
 
+        BN('i-global').onImagesLoaded(albumsContainer, function () {
+            BN('i-collage').init(albumsContainer, 100);
+        });
     }
 }).blockTemplate(function (ctx) {
 
@@ -28,11 +32,15 @@ BN.addDecl('box').onSetMod({
             reposts: data.reposts
         },
         docs = [],
-        dataAttaches = data.attachments;
+        dataAttaches = data.attachments,
+        postTime = BN('i-global').timeAgo(data.date);
 
         dataAttaches && dataAttaches.forEach(function(item){
             if(item.type == 'photo') {
                 attach.isPhoto = true;
+            }
+            if(item.type == 'album') {
+                attach.isAlbum = true;
             }
             if(item.type == 'link') {
                 attach.isLink = true;
@@ -67,7 +75,7 @@ BN.addDecl('box').onSetMod({
                 },
                 {
                     elem: 'time',
-                    content: BN('i-global').timeAgo(data.date)
+                    content: postTime ? postTime + ' назад' : 'только что'
                 },
                 {
                     elem: 'text',
@@ -86,6 +94,10 @@ BN.addDecl('box').onSetMod({
                     elem: 'images',
                     data: data.attachments
                 },
+                attach.isAlbum && {
+                    elem: 'album',
+                    data: data.attachments
+                },
                 attach.isDoc && {
                     elem: 'docs',
                     data: docs
@@ -97,7 +109,8 @@ BN.addDecl('box').onSetMod({
                 {
                     block: 'share',
                     mix: { block: 'box', elem: 'share' },
-                    data: share
+                    data: share,
+                    js: { source_id: data.source_id, post_id: data.post_id }
                 }
             ]
         }
@@ -127,6 +140,54 @@ BN.addDecl('box').onSetMod({
                 })
             ]
         }
+    },
+
+    album: function (ctx) {
+        var json = ctx.json(),
+            data = json.data,
+            album = data[0].album;
+
+
+        return BN('api-vk').getPhotos(album.owner_id, album.id, 15).then(function(data) {
+            console.log(data);
+
+            return {
+                elem: 'albums-inner',
+                content: [
+                    {
+                        elem: 'albums-photos',
+                        content: [
+                            data.items.map(function(item) {
+                                return {
+                                    block: 'link',
+                                    mix: { block: 'box', elem: 'album-wrapper' },
+                                    url: '#',
+                                    content: {
+                                        block: 'picture',
+                                        mix: { block: 'box', elem: 'post-album' },
+                                        src: item.photo_604 || item.photo_130
+                                    }
+                                };
+                            })
+                        ]
+                    },
+                    {
+                        elem: 'album-description',
+                        content: [
+                            {
+                                elem: 'album-title',
+                                content: album.title
+                            },
+                            {
+                                elem: 'count-photos',
+                                content: 5 + ' фото'
+                            }
+                        ]
+                    }
+                ]
+            }
+        });
+
     },
 
     docs: function (ctx) {

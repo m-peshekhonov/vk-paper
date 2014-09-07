@@ -25,7 +25,7 @@ BN.addDecl('i-vk').staticProp({
         var urlParams = [
             'client_id=4536942',
             'scope=8194',
-            'redirect_uri=http://localhost:3000',
+            'redirect_uri=http://127.0.0.1:3000',
             'display=popup',
             'v=5.24',
             'response_type=token'

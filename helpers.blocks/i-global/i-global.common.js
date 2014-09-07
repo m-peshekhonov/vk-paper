@@ -13,7 +13,7 @@ BN.addDecl('i-global').staticProp({
 
     page: '',
 
-    timeAgo: function(time, short) {
+    timeAgo: function(time) {
         var round = Math.round,
             date = Math.abs(time * 1000),
             seconds = round((new Date - date) / 1000),
@@ -49,7 +49,7 @@ BN.addDecl('i-global').staticProp({
             }
         };
 
-        return getTime() + (short ? '' : ' назад');
+        return getTime();
     },
 
     declination: function(a, b, c, s) {

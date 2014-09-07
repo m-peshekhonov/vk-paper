@@ -1,4 +1,9 @@
-BN.addDecl('share').blockTemplate(function(ctx) {
+BN.addDecl('share').onSetMod({
+    'js': function() {
+        this.source_id = this.params.source_id;
+        this.post_id = this.params.post_id;
+    }
+}).blockTemplate(function(ctx) {
     var json = ctx.json(),
         data = json.data,
         reposts = data.reposts.count,
@@ -10,6 +15,7 @@ BN.addDecl('share').blockTemplate(function(ctx) {
         {
             elem: 'item',
             mods: { type: 'share' },
+            mix: { block: 'share', elem: 'share' },
             icon: 'share',
             url: '/',
             count: reposts !== 0 ? reposts : '',
@@ -18,6 +24,7 @@ BN.addDecl('share').blockTemplate(function(ctx) {
         {
             elem: 'item',
             mods: { type: 'like' },
+            mix: { block: 'share', elem: 'like' },
             icon: 'like',
             url: '/',
             count: likes !== 0 ? likes : '',
@@ -54,4 +61,31 @@ BN.addDecl('share').blockTemplate(function(ctx) {
         }, true);
     }
 
+}).instanceProp({
+    _likeUnlike: function() {
+        var action = '_like';
+
+        // if (this._like.hasMod('liked', 'yes')) {
+        //     action = 'unLikePic';
+        //     this._like.delMod('liked');
+        //     this.delMod(this.elem('likeicon'), 'liked');
+        //     cnt--;
+        // } else {
+        //     action = 'likePic';
+        //     this._like.setMod('liked', 'yes');
+        //     this.setMod(this.elem('likeicon'), 'liked', 'yes');
+        //     cnt++;
+        // }
+        // console.log('sdsds');
+        BN('api-vk')[action](this.source_id, this.post_id);
+        // BN('i-content').update(this.elem('like-count'), cnt);
+    }
+}).staticProp({
+    live:  function() {
+        this.liveBindTo('like', 'click', function(e) {
+            this._likeUnlike();
+        });
+
+        return false;
+    }
 });

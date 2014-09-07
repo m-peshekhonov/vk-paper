@@ -1,18 +1,25 @@
 BN.addDecl('header').onSetMod({
     'js': function() {
-        var _this = this;
-
         this._page = this.findBlockOutside('b-page');
-
-        this.bindTo('logo', 'click', function() {
-            this._updatePage();
-        }.bind(this));
-
     }
 }).instanceProp({
     _updatePage: function() {
-        this._page.findBlockInside('feed').firstLoad();
+        this._page.findBlockInside('feed').firstLoad(true);
 
         this._page.domElem.scrollTop(0);
     }
-});
+}).staticProp({
+    live: function () {
+        this.liveBindTo('logo', 'click', function() {
+            this._updatePage();
+        });
+
+        this.liveBindTo('exit', 'click', function(e) {
+            BN('i-vk').logout();
+
+            return false;
+        });
+
+        return false;
+    }
+})

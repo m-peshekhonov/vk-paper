@@ -64,11 +64,12 @@
 .box__images-inner
 {
     width: 465px;
-    min-height: 150px;
+    min-height: 100px;
     margin-top: 10px;
 }
 
-.box__photo-wrapper
+.box__photo-wrapper,
+.box__album-wrapper
 {
     display: inline-block;
     overflow: hidden;
@@ -82,7 +83,8 @@
     vertical-align: bottom;
 }
 
-.box__photo-wrapper:hover
+.box__photo-wrapper:hover,
+.box__album-wrapper:hover
 {
     opacity: .8 !important;
 }
@@ -156,20 +158,21 @@
 .box__post-doc-title
 {
     font-size: 11px;
+
     position: absolute;
     bottom: 0;
+
+    overflow: hidden;
 
     width: 98px;
     padding: 0 6px;
 
     text-align: center;
+    white-space: nowrap;
+    text-overflow: ellipsis;
 
     color: #fff;
     background: rgba(0,0,0,.6);
-
-    overflow: hidden;
-    white-space: nowrap;
-    text-overflow: ellipsis;
 }
 
 .box__doc-wrapper:nth-child(4n)
@@ -180,4 +183,72 @@
 .box__post-doc
 {
     width: 100%;
+}
+
+.box__albums-inner
+{
+    margin-top: 10px;
+}
+.box__post-album
+{
+    width: 100%;
+}
+
+.box__albums-inner
+{
+    position: relative;
+
+    overflow: hidden;
+}
+
+.box__album-title,
+.box__count-photos
+{
+    display: inline-block;
+}
+
+.box__album-title
+{
+    overflow: hidden;
+
+    max-width: 361px;
+
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.box__count-photos
+{
+    float: right;
+
+    margin-right: 20px;
+}
+
+.box__album-description
+{
+    position: absolute;
+    bottom: 1px;
+
+    visibility: visible;
+
+    width: 100%;
+    padding: 5px 8px 0;
+
+    -webkit-transition: .2s;
+       -moz-transition: .2s;
+         -o-transition: .2s;
+            transition: .2s;
+
+    opacity: 1;
+    color: #fff;
+    background: rgba(0, 0, 0, .5);
+}
+
+.box__albums-inner:hover .box__album-description
+{
+    bottom: -28px;
+
+    visibility: hidden;
+
+    opacity: 0;
 }

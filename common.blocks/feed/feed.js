@@ -5,20 +5,21 @@ BN.addDecl('feed').onSetMod({
         this.firstLoad();
     }
 }).instanceProp({
-    firstLoad: function() {
+    firstLoad: function(force) {
         this._page.setMod('loading', 'yes');
-        this.loadPortion();
-    },
-    loadPortion: function() {
 
-        var testGroups = 'g44384363, g27725748, g15755094';
+        this.loadPortion(force);
+    },
+    loadPortion: function(force) {
+
+        var testGroups = 'g17796776';
 
         BN('api-vk')._getPosts(testGroups).then(function(data) {
-
             var _this = this,
                 groupsId = [],
                 news = [],
-                items = data.items;
+                items = data.items,
+                action = force ? 'update' : 'append';
 
             data.items.forEach(function(item) {
                 groupsId.push(String(item.source_id).slice(1));
@@ -47,7 +48,7 @@ BN.addDecl('feed').onSetMod({
                     }
                 }, _this);
 
-                BN('i-content')['append'](_this.domElem, news);
+                BN('i-content')[action](_this.domElem, news);
 
                 setTimeout(function () {
                     _this._page.delMod('loading');

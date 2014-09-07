@@ -35,6 +35,7 @@ BN.addDecl('header').blockTemplate(function(ctx) {
                         },
                         {
                             elem: 'item',
+                            mix: { block: 'header', elem: 'exit' },
                             url: '#',
                             content: 'Выйти'
                         }

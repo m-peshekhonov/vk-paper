@@ -1,6 +1,6 @@
 BN.addDecl('i-collage').staticProp({
 
-    init: function (block) {
+    init: function (block, heightImg) {
 
         var _this = this,
             row = 0,
@@ -8,7 +8,7 @@ BN.addDecl('i-collage').staticProp({
             rownum = 1,
             $this = block,
             settings = {
-                targetHeight : 150,
+                targetHeight : heightImg || 150,
                 fadeSpeed : 'fast',
                 allowPartialLastRow : false,
                 albumWidth: block.width(),

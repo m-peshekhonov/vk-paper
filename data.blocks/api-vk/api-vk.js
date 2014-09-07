@@ -25,7 +25,6 @@ BN.addDecl('api-vk').staticProp({
                 // // TODO: доделать обработку ошибок
                 // data.meta.code == '400' &&
                 //     promise.reject(data.meta.error_message);
-
                 promise.fulfill(data.response);
             },
             error: function(err) { promise.reject(err); }
@@ -58,6 +57,20 @@ BN.addDecl('api-vk').staticProp({
     // подробная информация о сообществе
     _groupInfo: function(groupIds) {
         var url = this._apiHost + 'groups.getById?group_ids=' + groupIds;
+
+        return this._request(url);
+    },
+
+    // лайки
+    _like: function(owner_id, item_id) {
+        var url = this._apiHost + 'likes.add?owner_id=' + owner_id + '&item_id=' + item_id;
+
+        return this._request(url);
+    },
+
+    // лайки
+    getPhotos: function(owner_id, item_id, count) {
+        var url = this._apiHost + 'photos.get?count=' + count + '&owner_id=' + owner_id + '&album_id=' + item_id;
 
         return this._request(url);
     }
