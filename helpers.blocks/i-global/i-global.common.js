@@ -65,9 +65,11 @@ BN.addDecl('i-global').staticProp({
     },
 
     linkify: function(text) {
-        var pattern = /(\b(https?|ftp|file):\/\/[-A-Z0-9+&@#\/%?=~_|!:,.;]*[-A-Z0-9+&@#\/%=~_|])/ig;
+        // var pattern = /(\b(https?|ftp|file):\/\/[-A-Z0-9+&@#\/%?=~_|!:,.;]*[-A-Z0-9+&@#\/%=~_|])/ig;
 
-        return text.replace(pattern, '<a class="link" href="$1" target="_blank">$1</a>');
+        // return text.replace(pattern, '<a class="link" href="$1" target="_blank">$1</a>');
+
+        return text;
     },
 
     cutText: function(text, length) {
@@ -81,8 +83,6 @@ BN.addDecl('i-global').staticProp({
                 lastWord = lastWord(firstText),
                 secondText = text.slice(length, text.length),
                 allText = firstText + '<div class="box__text-hide box__text-hide_hide_yes">' + secondText + '</div>';
-
-            // console.log(firstText.replace(lastWord, '...'));
 
             return allText;
         } else {

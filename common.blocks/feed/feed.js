@@ -12,7 +12,7 @@ BN.addDecl('feed').onSetMod({
     },
     loadPortion: function(force) {
 
-        var testGroups = 'g17796776';
+        var testGroups = 'g34580489';
 
         BN('api-vk')._getPosts(testGroups).then(function(data) {
             var _this = this,

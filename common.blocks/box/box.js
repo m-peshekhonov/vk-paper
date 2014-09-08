@@ -33,7 +33,8 @@ BN.addDecl('box').onSetMod({
         },
         docs = [],
         dataAttaches = data.attachments,
-        postTime = BN('i-global').timeAgo(data.date);
+        postTime = BN('i-global').timeAgo(data.date),
+        dataRepost = data.copy_history;
 
         dataAttaches && dataAttaches.forEach(function(item){
             if(item.type == 'photo') {
@@ -50,6 +51,10 @@ BN.addDecl('box').onSetMod({
             if(item.type == 'doc') {
                 attach.isDoc = true;
                 docs.push(item);
+            }
+
+            if(item.type == 'video') {
+                attach.isVideo = true;
             }
         });
 
@@ -77,6 +82,10 @@ BN.addDecl('box').onSetMod({
                     elem: 'time',
                     content: postTime ? postTime + ' назад' : 'только что'
                 },
+                dataRepost && {
+                    elem: 'repost',
+                    data: dataRepost[0]
+                },
                 {
                     elem: 'text',
                     content: [
@@ -90,7 +99,7 @@ BN.addDecl('box').onSetMod({
                         }
                     ]
                 },
-                attach.isPhoto && {
+                (attach.isVideo || attach.isPhoto) && {
                     elem: 'images',
                     data: data.attachments
                 },
@@ -117,25 +126,97 @@ BN.addDecl('box').onSetMod({
     ]);
 
 }).elemTemplate({
+
+    repost: function (ctx) {
+        var json = ctx.json(),
+            data = json.data,
+            gId = String(data.from_id).replace('-', '');
+
+        return BN('api-vk')._groupInfo(gId).then(function(res) {
+            var res = res[0],
+                link = '//vk.com/' + res.screen_name;
+
+            return [
+                {
+                    elem: 'repost-inner',
+                    content: [
+                        {
+                            block: 'image',
+                            mix: { block: 'box', elem: 'repost-avatar' },
+                            url: link,
+                            target: '_blank',
+                            src: res.photo_50
+                        },
+                        {
+                            elem: 'repost-content',
+                            content: [
+                                {
+                                    block: 'icon',
+                                    mix: { block: 'box', elem: 'repost-icon' },
+                                    mods: { type: 'share' }
+                                },
+                                {
+                                    block: 'link',
+                                    url: link,
+                                    target: '_blank',
+                                    mix: { block: 'box', elem: 'repost-title' },
+                                    content: res.name
+                                },
+                                {
+                                    block: 'link',
+                                    url: link,
+                                    target: '_blank',
+                                    mix: { block: 'box', elem: 'repost-time' },
+                                    content: BN('i-global').timeAgo(data.date) + ' назад'
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    elem: 'text',
+                    content: BN('i-global').linkify(data.text)
+                },
+                {
+                    elem: 'images',
+                    data: data.attachments
+                }
+            ]
+        });
+
+    },
+
     images: function (ctx) {
         var json = ctx.json(),
             data = json.data;
 
         if(!data) return;
 
+        console.log(data);
+
         return {
             elem: 'images-inner',
             content: [
                 data.map(function(item) {
-                    return item.type === 'photo' && {
+                    var isPhoto = item.type === 'photo';
+                    return {
                         block: 'link',
-                        mix: { block: 'box', elem: 'photo-wrapper' },
+                        mix: { block: 'box', elem: 'photo-wrapper', mods: { type: isPhoto ? 'photo' : 'video' } },
                         url: '#',
-                        content: {
+                        content: item.type === 'photo' ? {
                             block: 'picture',
                             mix: { block: 'box', elem: 'post-image' },
                             src: item.photo.photo_807 || item.photo.photo_604
-                        }
+                        } : [{
+                                block: 'picture',
+                                mix: { block: 'box', elem: 'post-image'},
+                                src: item.video.photo_640 || item.video.photo_320
+                            },
+                            {
+                                block: 'box',
+                                elem: 'video-control'
+                            }
+                        ]
                     };
                 })
             ]
@@ -149,8 +230,6 @@ BN.addDecl('box').onSetMod({
 
 
         return BN('api-vk').getPhotos(album.owner_id, album.id, 15).then(function(data) {
-            console.log(data);
-
             return {
                 elem: 'albums-inner',
                 content: [
@@ -209,7 +288,7 @@ BN.addDecl('box').onSetMod({
                             {
                                 block: 'picture',
                                 mix: { block: 'box', elem: 'post-doc' },
-                                src: item.doc.thumb || item.doc.thumb_s
+                                src: item.doc.photo_130 || item.doc.photo_100
                             },
                             {
                                block: 'box',
