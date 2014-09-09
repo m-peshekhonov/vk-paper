@@ -1,0 +1,199 @@
+@font-face
+{
+    font-family: 'Neue';
+    font-weight: normal;
+    font-style: normal;
+
+    src: url('HelveticaNeueCyr/HelveticaNeueCyr-Thin.otf');
+}
+
+@font-face
+{
+    font-family: 'NeueLight';
+    font-weight: normal;
+    font-style: normal;
+
+    src: url('HelveticaNeueCyr/HelveticaNeueCyr-UltraLight.otf');
+}
+
+.login
+{
+    font-family: 'NeueLight';
+}
+
+.login__about
+{
+    position: relative;
+
+    width: 100%;
+    height: 470px;
+    margin-top: -55px;
+
+    background-color: #8396ac;
+    background-image: url(login.jpg);
+    background-repeat: no-repeat;
+    background-position: 50% 70%;
+    -webkit-background-size: cover;
+         -o-background-size: cover;
+            background-size: cover;
+    box-shadow: 0 -80px 170px rgba(0, 0, 0, .3) inset;
+}
+
+.login__description
+{
+    font-size: 24px;
+    line-height: 36px;
+
+    position: absolute;
+    top: 220px;
+    left: 10%;
+
+    width: 40%;
+    min-width: 490px;
+    max-width: 570px;
+    padding: 30px 0;
+
+    color: rgba(255, 255, 255, .95);
+    text-shadow: 0 1px 0 rgba(0, 0, 0, .15);
+}
+
+.login__button
+{
+    font-size: 28px;
+
+    position: absolute;
+    top: 280px;
+    right: 10%;
+
+    padding: 30px 80px 27px 60px;
+
+    cursor: pointer;
+    -webkit-transition: .3s;
+       -moz-transition: .3s;
+        -ms-transition: .3s;
+         -o-transition: .3s;
+            transition: .3s;
+    -webkit-animation: bg .8s ease-in-out infinite alternate;
+
+    color: rgba(255, 255, 255, .9);
+    border: 1px solid rgba(255, 255, 255, .5);
+    border-radius: 5px;
+    background-color: rgba(255, 255, 255, .1);
+    background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABcAAAA0CAQAAADLG2uzAAABeElEQVR4AZXTMYjOARjH8ed1euve6CxELkoXKZMSkWIQMVDKYlAkg0SUDESZDMpw0xVRSkRSBnWDurq6FMMlwqS7XN7ElaR/Xu/HZPbz/NbP9vSt/z6zJnVUslIa3NdK+SlwPuXlFnp2p7xtCl+NZLwMm8O0RRkv2zR4qJXxcgJcTHkZQ8/elLdNYt7ajJcVZvHGUMbLFg0ea2W8HAOXU15G0bc/5W0TmLc+42WZGbwzlPGyyU88tSDj5Qi4mvJyA30HU77Qc3y3IeNlqY/4YEnGy0Y/8MxAxsthcC3l5Tr6DqV8wDi6KW+bwFzKR9F3IONHwRWV8M0aPNFK+HIzeGsoedPf1NephI/ht30q4cfBJZXwrRo80kr4Sp/w2uIs7Sl8M6ISfhM9e1TCT4ILKuHbNXiglfBhnzGto/7NB73AF2tUwm+jZ5dK+GlwTiV8h1+4pxK+ShevdBLe8RJdq1XC76Jnp0r4WXBGZbyHOyrl740bzHnl+wNfOhwnbu4xCAAAAABJRU5ErkJggg==);
+    background-repeat: no-repeat;
+    background-position: 90% 50%;
+    background-size: 22px;
+}
+
+.login__button:hover
+{
+    color: #fff;
+    border: 1px solid rgba(255, 255, 255, .9);
+}
+
+.login__about-title
+{
+    font-size: 46px;
+
+    margin-bottom: 25px;
+}
+
+@-webkit-keyframes 'bg'
+{
+    from
+    {
+         background-position: 90% 50%;
+         background-color: rgba(255, 255, 255, .05);
+    }
+
+    to
+    {
+         background-position: 93% 50%;
+         background-color: rgba(255, 255, 255, .1);
+    }
+}
+
+.login__performance
+{
+    padding: 25px 10%;
+}
+
+.login__performance-inner
+{
+    display: inline-block;
+
+    width: 40%;
+    min-width: 280px;
+    margin-top: 90px;
+
+    vertical-align: top;
+}
+
+.login__performance-title
+{
+    font-size: 36px;
+    line-height: 32px;
+
+    margin-top: 15px;
+    margin-bottom: 30px;
+
+    color: #3e4248;
+}
+
+.login__performance-item
+{
+    font-size: 20px;
+    line-height: 26px;
+
+    position: relative;
+
+    padding-bottom: 12px;
+
+    color: #6c7479;
+}
+
+.login__performance-item:before
+{
+    position: absolute;
+    left: -38px;
+
+    margin-top: -2px;
+
+    content: '—';
+
+    color: #ccc;
+}
+
+.login__start
+{
+    font-size: 24px;
+
+    display: inline-block;
+
+    margin-top: 45px;
+    padding: 22px 12% 18px;
+
+    cursor: pointer;
+    text-decoration: none;
+
+    color: #fff;
+    border-bottom: 4px solid rgba(0, 0, 0, .3);
+    border-radius: 5px;
+    background: #5281bd;
+}
+
+.login__picture
+{
+    display: inline-block;
+    float: right;
+
+    width: 60%;
+    height: 550px;
+
+    vertical-align: top;
+
+    background: url(overview_display_hero.jpg);
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+    background-size: contain;
+}

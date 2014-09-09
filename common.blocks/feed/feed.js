@@ -2,6 +2,8 @@ BN.addDecl('feed').onSetMod({
     js: function() {
         this._page = this.findBlockOutside('b-page');
 
+        this._page.delMod('login');
+
         this.firstLoad();
     }
 }).instanceProp({

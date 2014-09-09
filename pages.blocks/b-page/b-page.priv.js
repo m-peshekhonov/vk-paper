@@ -8,7 +8,6 @@ BEM.JSON.decl('b-page', {
             { elem: 'css', url: pathPrefix + '.css', ie: false }
         ];
 
-        // Подключаем какие-то свои скрипты (например api карт)
         footStatic = [
             // { elem: 'js', url: '//api-maps.yandex.ru/2.0/?load=package.full&lang=ru-RU' },
             { elem: 'js', url: '//vk.com/js/api/openapi.js' },
@@ -30,6 +29,20 @@ BEM.JSON.decl('b-page', {
 
 BN.addDecl('b-page').blockTemplate(function(ctx) {
     ctx.js(true);
+
+    var isLogin = BN('i-cookie').get('vkToken');
+
+    ctx.mod('login', isLogin ? 'no' : 'yes');
+
+    if (!isLogin && BN('i-router').getPath() != '/') {
+        BN('i-router').replacePath('/');
+    }
+
+    if(isLogin && BN('i-router').getPath() != '/feed') {
+        BN('i-router').replacePath('/feed');
+
+        return;
+    }
 
     ctx.content({
         elem: 'inner',

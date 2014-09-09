@@ -1,9 +1,9 @@
-BN.addDecl('page-index', 'page', {
+BN.addDecl('page-login', 'page', {
     route: /^\/$/
 }).staticProp({
     init: function () {
         return this.out({
-            block: 'main'
+            block: 'login'
         });
     }
 });

@@ -1,3 +1,11 @@
+.usermenu_fixed_yes
+{
+    position: fixed;
+    top: 65px;
+
+    width: 185px;
+}
+
 .usermenu .usermenu__menu
 {
     margin: -5px 0 0 -40px;

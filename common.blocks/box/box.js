@@ -192,8 +192,6 @@ BN.addDecl('box').onSetMod({
 
         if(!data) return;
 
-        console.log(data);
-
         return {
             elem: 'images-inner',
             content: [

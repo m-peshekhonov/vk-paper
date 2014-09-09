@@ -11,5 +11,38 @@
     padding: 0;
 
     background: #F3F4F5;
-    /*background: #DEE4E9 url(http://zhukov.github.io/webogram/img/bg_tile.png) fixed;*/
+}
+
+.b-page_login_yes .header__search,
+.b-page_login_yes .header__menu
+{
+    display: none;
+}
+
+.b-page_login_yes
+{
+    /*background: #E5E9EC;*/
+    background: #fff;
+
+    min-width: 900px;
+}
+
+.b-page_login_yes .header
+{
+    background: rgba(76, 113, 168, 0.7);
+    box-shadow: none;
+}
+.b-page_login_yes .header__inner
+{
+    width: 80%;
+}
+
+.b-page_login_yes .header__logo
+{
+    margin: 13px 0;
+}
+
+.b-page_login_yes .content
+{
+    width: 100%;
 }
