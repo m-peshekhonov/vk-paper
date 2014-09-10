@@ -3,6 +3,8 @@
     position: fixed;
     top: 47px;
 
+    z-index: 10;
+
     visibility: hidden;
 
     width: 100%;

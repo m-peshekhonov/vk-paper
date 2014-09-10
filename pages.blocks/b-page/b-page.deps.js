@@ -21,6 +21,7 @@
         { block: 'header' },
         { block: 'content' },
         { block: 'main' },
+        { block: 'scroll-top' },
         { block: 'feed' },
         { block: 'user' },
         { block: 'usermenu' },
