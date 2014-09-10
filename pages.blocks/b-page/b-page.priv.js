@@ -9,8 +9,6 @@ BEM.JSON.decl('b-page', {
         ];
 
         footStatic = [
-            // { elem: 'js', url: '//api-maps.yandex.ru/2.0/?load=package.full&lang=ru-RU' },
-            { elem: 'js', url: '//vk.com/js/api/openapi.js' },
             { block: 'i-jquery', elem: 'core' },
             { elem: 'js', url: pathPrefix + '.js' }
         ];

@@ -7,7 +7,8 @@ BN.addDecl('header').blockTemplate(function(ctx) {
             elem: 'inner',
             content: [
                 {
-                    elem: 'logo'
+                    elem: 'logo',
+                    content: 'paper'
                 },
                 {
                     block: 'icon',

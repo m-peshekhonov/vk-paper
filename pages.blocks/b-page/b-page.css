@@ -1,3 +1,5 @@
+@import "http://webfonts.ru/import/aleo.css";
+
 *
 {
     outline: none;
@@ -5,12 +7,12 @@
 
 .b-page
 {
+
+    background: #f3f4f5;
     font: 13px/18px 'Lucida Sans Unicode', Arial, Helvetica, Verdana, sans-serif;
 
     margin: 0;
     padding: 0;
-
-    background: #F3F4F5;
 }
 
 .b-page_login_yes .header__search,
@@ -21,28 +23,33 @@
 
 .b-page_login_yes
 {
-    /*background: #E5E9EC;*/
-    background: #fff;
-
-    min-width: 900px;
+    background: #E5E9EC;
+    min-width: 940px;
 }
 
 .b-page_login_yes .header
 {
-    background: rgba(76, 113, 168, 0.7);
+
+    background: rgba(71, 108, 163, .7);
     box-shadow: none;
+    margin: -17px auto 0;
+    position: relative;
+
+    width: 80%;
 }
+
 .b-page_login_yes .header__inner
 {
-    width: 80%;
+    width: 85%;
 }
 
 .b-page_login_yes .header__logo
 {
-    margin: 13px 0;
+    margin: 33px 0 21px;
 }
 
 .b-page_login_yes .content
 {
+    margin-top: 0;
     width: 100%;
 }

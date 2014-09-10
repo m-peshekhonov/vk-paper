@@ -19,6 +19,8 @@
 .login
 {
     font-family: 'NeueLight';
+
+    letter-spacing: 1px;
 }
 
 .login__about
@@ -46,11 +48,12 @@
 
     position: absolute;
     top: 220px;
-    left: 10%;
+    left: 13%;
 
     width: 40%;
     min-width: 490px;
     max-width: 570px;
+    margin-left: 4px;
     padding: 30px 0;
 
     color: rgba(255, 255, 255, .95);
@@ -62,10 +65,10 @@
     font-size: 28px;
 
     position: absolute;
-    top: 280px;
-    right: 10%;
+    top: 293px;
+    right: 13%;
 
-    padding: 30px 80px 27px 60px;
+    padding: 29px 80px 26px 60px;
 
     cursor: pointer;
     -webkit-transition: .3s;
@@ -82,7 +85,7 @@
     background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABcAAAA0CAQAAADLG2uzAAABeElEQVR4AZXTMYjOARjH8ed1euve6CxELkoXKZMSkWIQMVDKYlAkg0SUDESZDMpw0xVRSkRSBnWDurq6FMMlwqS7XN7ElaR/Xu/HZPbz/NbP9vSt/z6zJnVUslIa3NdK+SlwPuXlFnp2p7xtCl+NZLwMm8O0RRkv2zR4qJXxcgJcTHkZQ8/elLdNYt7ajJcVZvHGUMbLFg0ea2W8HAOXU15G0bc/5W0TmLc+42WZGbwzlPGyyU88tSDj5Qi4mvJyA30HU77Qc3y3IeNlqY/4YEnGy0Y/8MxAxsthcC3l5Tr6DqV8wDi6KW+bwFzKR9F3IONHwRWV8M0aPNFK+HIzeGsoedPf1NephI/ht30q4cfBJZXwrRo80kr4Sp/w2uIs7Sl8M6ISfhM9e1TCT4ILKuHbNXiglfBhnzGto/7NB73AF2tUwm+jZ5dK+GlwTiV8h1+4pxK+ShevdBLe8RJdq1XC76Jnp0r4WXBGZbyHOyrl740bzHnl+wNfOhwnbu4xCAAAAABJRU5ErkJggg==);
     background-repeat: no-repeat;
     background-position: 90% 50%;
-    background-size: 22px;
+    background-size: 20px;
 }
 
 .login__button:hover
@@ -93,28 +96,29 @@
 
 .login__about-title
 {
-    font-size: 46px;
+    font-size: 55px;
 
-    margin-bottom: 25px;
+    margin-bottom: 30px;
 }
 
 @-webkit-keyframes 'bg'
 {
     from
     {
-         background-position: 90% 50%;
-         background-color: rgba(255, 255, 255, .05);
+        background-color: rgba(255, 255, 255, .05);
+        background-position: 90% 50%;
     }
 
     to
     {
-         background-position: 93% 50%;
-         background-color: rgba(255, 255, 255, .1);
+        background-color: rgba(255, 255, 255, .1);
+        background-position: 93% 50%;
     }
 }
 
 .login__performance
 {
+    height: 550px;
     padding: 25px 10%;
 }
 
@@ -136,6 +140,8 @@
 
     margin-top: 15px;
     margin-bottom: 30px;
+
+    white-space: nowrap;
 
     color: #3e4248;
 }
@@ -168,18 +174,43 @@
 {
     font-size: 24px;
 
+    position: relative;
+
     display: inline-block;
 
     margin-top: 45px;
-    padding: 22px 12% 18px;
+    padding: 22px 20px 18px 70px;
 
     cursor: pointer;
+    -webkit-transition: .2s;
+       -moz-transition: .2s;
+        -ms-transition: .2s;
+         -o-transition: .2s;
+            transition: .2s;
     text-decoration: none;
 
     color: #fff;
-    border-bottom: 4px solid rgba(0, 0, 0, .3);
     border-radius: 5px;
     background: #5281bd;
+}
+
+.login__start:hover
+{
+    background: #4575b1;
+}
+
+.login__start:active
+{
+    background: #3d6aa3;
+    box-shadow: 0 0 5px rgba(0, 0, 0, .15) inset;
+}
+
+
+.login__start:before
+{
+    position: absolute;
+    top: 13px;
+    left: 15px;
 }
 
 .login__picture
@@ -192,8 +223,76 @@
 
     vertical-align: top;
 
-    background: url(overview_display_hero.jpg);
+    background: url(main.jpg);
     background-repeat: no-repeat;
     background-position: 50% 50%;
     background-size: contain;
+}
+
+.login__footer
+{
+    padding: 40px 10% 35px;
+    font-family: 'Neue';
+
+    background-color: #242424;
+}
+
+.footer__menu,
+.login__author
+{
+    display: inline-block;
+
+    padding: 0;
+
+    vertical-align: middle;
+}
+
+.login__author
+{
+    font-size: 18px;
+
+    float: right;
+
+    margin-top: 26px;
+
+    color: rgba(255, 255, 255, .3);
+}
+
+.login__footer .menu__item
+{
+    display: inline-block;
+}
+
+.login__footer .menu__item .link
+{
+    font-size: 15px;
+
+    display: block;
+
+    padding: 15px 15px 14px;
+
+    cursor: pointer;
+    text-transform: uppercase;
+
+    color: rgba(255, 255, 255, .9);
+}
+
+.login__footer .menu__item .link:hover
+{
+    color: #fff;
+}
+
+.login__footer .menu__item_type_vk .link:hover
+{
+    background: #4d7198;
+}
+
+.login__footer .menu__item_type_facebook .link:hover
+{
+    background: #3b5998;
+}
+
+.login__footer .menu__item_type_twitter .link:hover
+{
+    background: #1faee9;
 }

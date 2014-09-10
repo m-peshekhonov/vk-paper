@@ -14,18 +14,18 @@ BN.addDecl('login').blockTemplate(function(ctx) {
                             content: [
                                 {
                                     elem: 'about-title',
-                                    content: 'Что такое VK Paper ?'
+                                    content: 'VK Paper'
                                 },
                                 {
                                     elem: 'about-text',
-                                    content: 'Цель проекта — показать самые интересные и важные новости лучших сообществ ВКонтакте в удобном и красивом формате!'
+                                    content: 'Мы показываем самые интересные и важные новости лучших сообществ ВКонтакте в красивом и удобном формате!'
                                 }
                             ]
                         },
                         {
                             elem: 'button',
                             mix: { block: 'login', elem: 'enter' },
-                            content: 'Поехали'
+                            content: 'Начать'
                         }
                     ]
                 },
@@ -53,13 +53,55 @@ BN.addDecl('login').blockTemplate(function(ctx) {
                                 },
                                 {
                                     elem: 'start',
-                                    mix: { block: 'login', elem: 'enter' },
+                                    mix: [
+                                        {
+                                            block: 'login',
+                                            elem: 'enter'
+                                        },
+                                        {
+                                            block: 'icon',
+                                            mods: { type: 'vk' }
+                                        }
+                                    ],
                                     content: 'Войти ВКонтакте'
                                 }
                             ]
                         },
                         {
                             elem: 'picture'
+                        }
+                    ]
+                },
+                {
+                    elem: 'footer',
+                    content: [
+                        {
+                            block: 'menu',
+                            mix: { block: 'footer', elem: 'menu' },
+                            content: [
+                                {
+                                    elem: 'item',
+                                    mods: { type: 'vk' },
+                                    url: '#',
+                                    content: 'ВКонтакте'
+                                },
+                                {
+                                    elem: 'item',
+                                    mods: { type: 'facebook' },
+                                    url: '#',
+                                    content: 'Facebook'
+                                },
+                                {
+                                    elem: 'item',
+                                    mods: { type: 'twitter' },
+                                    url: '#',
+                                    content: 'Twitter'
+                                }
+                            ]
+                        },
+                        {
+                            elem: 'author',
+                            content: '© 2014 VK Paper'
                         }
                     ]
                 }
