@@ -23,8 +23,8 @@ BN.addDecl('user').onSetMod({
                     {
                         block: 'link',
                         mix: { block: 'user', elem: 'settings' },
-                        url: '#',
-                        content: 'Настройки'
+                        url: '/feed/',
+                        content: 'Моя лента'
                     }
                 ]
             }

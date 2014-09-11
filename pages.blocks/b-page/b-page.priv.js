@@ -32,15 +32,19 @@ BN.addDecl('b-page').blockTemplate(function(ctx) {
 
     ctx.mod('login', isLogin ? 'no' : 'yes');
 
+    if(BN('i-router').getPath() === '/category') {
+        ctx.mod('category', 'yes');
+    }
+
     if (!isLogin && BN('i-router').getPath() != '/') {
         BN('i-router').replacePath('/');
     }
 
-    if(isLogin && BN('i-router').getPath() != '/feed') {
-        BN('i-router').replacePath('/feed');
+    // if(isLogin && BN('i-router').getPath() != '/feed') {
+    //     BN('i-router').replacePath('/feed');
 
-        return;
-    }
+    //     return;
+    // }
 
     ctx.content({
         elem: 'inner',

@@ -22,6 +22,9 @@
     padding: 7px 10px 7px 16px;
 
     border-radius: 2px;
+    color: #4D75A2;
+
+    cursor: pointer;
 }
 
 .usermenu__menu .link:hover

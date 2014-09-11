@@ -7,5 +7,6 @@ exports.blocks = [
 
     // pages
     { block: 'page-login' },
+    { block: 'page-cat' },
     { block: 'page-feed' }
 ];

@@ -5,25 +5,29 @@ BN.addDecl('menu').blockTemplate(function(ctx) {
 }).elemTemplate({
 
     'item': function(ctx) {
-        var json = ctx.json();
+        var json = ctx.json(),
+            content = [
+                json.icon && {
+                    block: 'icon',
+                    mix: { block: 'menu', elem: 'icon' },
+                    mods: { type: json.icon }
+                },
+                {
+                    block: 'menu',
+                    elem: 'text',
+                    content: ctx.content()
+                }
+            ];
 
         ctx.tag('li')
-            .content({
+            .content(json.url ? {
                 block: 'link',
                 url: json.url,
                 target: json.target,
-                content: [
-                    json.icon && {
-                        block: 'icon',
-                        mix: { block: 'menu', elem: 'icon' },
-                        mods: { type: json.icon }
-                    },
-                    {
-                        block: 'menu',
-                        elem: 'text',
-                        content: ctx.content()
-                    }
-                ]
+                content: content
+            } : {
+                elem: 'item-inner',
+                content: content
             }, true);
     }
 

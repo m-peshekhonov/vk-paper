@@ -2,6 +2,8 @@ BN.addDecl('feed').onSetMod({
     js: function() {
         this._page = this.findBlockOutside('b-page');
 
+        this._source = this.params.source;
+
         this._page.delMod('login');
 
         this.firstLoad();
@@ -10,13 +12,11 @@ BN.addDecl('feed').onSetMod({
     firstLoad: function(force) {
         this._page.setMod('loading', 'yes');
 
-        this.loadPortion(force);
+        this.loadPortion(force, this._source);
     },
-    loadPortion: function(force) {
+    loadPortion: function(force, source) {
 
-        var testGroups = 'g34580489';
-
-        BN('api-vk')._getPosts(testGroups).then(function(data) {
+        BN('api-vk')._getPosts(source).then(function(data) {
             var _this = this,
                 groupsId = [],
                 news = [],

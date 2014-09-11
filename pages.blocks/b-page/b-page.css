@@ -53,3 +53,19 @@
     margin-top: 0;
     width: 100%;
 }
+
+.b-page_category_yes .header
+{
+    text-align: center;
+}
+
+.b-page_category_yes .header__logo
+{
+    margin-left: 0;
+}
+
+.b-page_category_yes .header__search,
+.b-page_category_yes .header__menu
+{
+    display: none;
+}

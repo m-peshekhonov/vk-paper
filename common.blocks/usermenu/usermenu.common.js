@@ -9,97 +9,97 @@ BN.addDecl('usermenu').blockTemplate(function(ctx) {
                 content: [
                     {
                         elem: 'item',
-                        url: '#',
+                        url: '/feed/design/',
                         icon: 'spin',
                         content: 'Арт и дизайн'
                     },
                     {
                         elem: 'item',
-                        url: '#',
+                        url: '/feed/polytics/',
                         icon: 'users',
                         content: 'Политика'
                     },
                     {
                         elem: 'item',
-                        url: '#',
+                        url: '/feed/humor/',
                         icon: 'wink',
                         content: 'Юмор'
                     },
                     {
                         elem: 'item',
-                        url: '#',
+                        url: '/feed/games/',
                         icon: 'game',
                         content: 'Игры'
                     },
                     {
                         elem: 'item',
-                        url: '#',
+                        url: '/feed/social/',
                         icon: 'vk',
                         content: 'Соц. сети'
                     },
                     {
                         elem: 'item',
-                        url: '#',
+                        url: '/feed/media/',
                         icon: 'media',
                         content: 'Медиа'
                     },
                     {
                         elem: 'item',
-                        url: '#',
+                        url: '/feed/auto/',
                         icon: 'auto',
                         content: 'Авто и мото'
                     },
                     {
                         elem: 'item',
-                        url: '#',
+                        url: '/feed/travel/',
                         icon: 'trip',
                         content: 'Путешествия'
                     },
                     {
                         elem: 'item',
-                        url: '#',
+                        url: '/feed/movies/',
                         icon: 'movie',
                         content: 'Все о кино'
                     },
                     {
                         elem: 'item',
-                        url: '#',
+                        url: '/feed/technology/',
                         icon: 'tech',
                         content: 'Технологии'
                     },
                     {
                         elem: 'item',
-                        url: '#',
+                        url: '/feed/apple/',
                         icon: 'apple',
                         content: 'Apple'
                     },
                     {
                         elem: 'item',
-                        url: '#',
+                        url: '/feed/android/',
                         icon: 'android',
                         content: 'Android'
                     },
                     {
                         elem: 'item',
-                        url: '#',
+                        url: '/feed/sport/',
                         icon: 'sport',
                         content: 'Спорт'
                     },
                     {
                         elem: 'item',
-                        url: '#',
+                        url: '/feed/animals/',
                         icon: 'animal',
                         content: 'Животные'
                     },
                     {
                         elem: 'item',
-                        url: '#',
+                        url: '/feed/science/',
                         icon: 'science',
                         content: 'Наука'
                     },
                     {
                         elem: 'item',
-                        url: '#',
+                        url: '/feed/photos/',
                         icon: 'picture',
                         content: 'Фото и видео'
                     }

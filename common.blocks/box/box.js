@@ -56,6 +56,7 @@ BN.addDecl('box').onSetMod({
             if(item.type == 'video') {
                 attach.isVideo = true;
             }
+
         });
 
     ctx.js(true);
@@ -196,7 +197,12 @@ BN.addDecl('box').onSetMod({
             elem: 'images-inner',
             content: [
                 data.map(function(item) {
-                    var isPhoto = item.type === 'photo';
+                    var isPhoto = item.type === 'photo',
+                        isVideo = item.type === 'video';
+
+                    // TODO: пофиксить
+                    if(item.type === 'link') return;
+
                     return {
                         block: 'link',
                         mix: { block: 'box', elem: 'photo-wrapper', mods: { type: isPhoto ? 'photo' : 'video' } },

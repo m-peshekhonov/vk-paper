@@ -1,0 +1,187 @@
+@font-face
+{
+    font-family: 'Neue';
+    font-weight: normal;
+    font-style: normal;
+
+    src: url('HelveticaNeueCyr/HelveticaNeueCyr-Thin.otf');
+}
+
+.category
+{
+    font-family: 'Neue';
+
+    text-align: center;
+}
+
+.category__title
+{
+    font-size: 26px;
+
+    padding: 35px 0;
+
+    text-align: center;
+}
+
+.category__item
+{
+    font-size: 20px;
+
+    position: relative;
+
+    display: inline-block;
+    overflow: hidden;
+
+    text-align: left;
+
+    width: 240px;
+    height: 165px;
+    margin: 5px;
+
+    cursor: pointer;
+    vertical-align: top;
+
+    color: #fff;
+    background-color: #ddd;
+    -webkit-background-size: cover;
+         -o-background-size: cover;
+            background-size: cover;
+    box-shadow: 0 0 80px rgba(0, 0, 0, .5) inset;
+    text-shadow: 0 1px 0 rgba(0, 0, 0, .5);
+
+    -webkit-filter: grayscale(100%);
+}
+
+.category__item-title
+{
+    position: absolute;
+    top: 0;
+
+    width: 100%;
+    height: 100%;
+    padding: 20px 0 0 20px;
+
+    -webkit-transition: .3s;
+
+    background-color: rgba(0, 0, 0, .2);
+    background-position: 46% 40%;
+}
+
+.category__item_active_yes .category__item-title,
+.category__item-title:hover
+{
+    background: rgba(0, 0, 0, 0.35) url(check.png);
+    background-repeat: no-repeat;
+    background-position: 46% 45%;
+}
+
+.category__item:hover,
+.category__item_active_yes
+{
+    -webkit-filter: grayscale(0);
+}
+
+.category__button
+{
+    font-size: 24px;
+
+    position: relative;
+
+    display: inline-block;
+
+    margin: 50px 45px;
+    padding: 25px 70px 20px;
+
+    cursor: pointer;
+    -webkit-transition: .2s;
+       -moz-transition: .2s;
+        -ms-transition: .2s;
+         -o-transition: .2s;
+            transition: .2s;
+    text-decoration: none;
+
+    color: #fff;
+    border-radius: 5px;
+    background: #5281bd;
+}
+
+.category__item_type_design
+{
+    background-image: url(images/category__item_type_design.jpg);
+}
+
+.category__item_type_polytics
+{
+    background-image: url(images/category__item_type_polytics.jpg);
+}
+
+.category__item_type_humor
+{
+    background-image: url(images/category__item_type_humor.jpg);
+}
+
+.category__item_type_games
+{
+    background-image: url(images/category__item_type_games.jpg);
+}
+
+.category__item_type_social
+{
+    background-image: url(images/category__item_type_social.jpg);
+}
+
+.category__item_type_media
+{
+    background-image: url(images/category__item_type_media.jpg);
+}
+
+.category__item_type_auto
+{
+    background-image: url(images/category__item_type_auto.jpg);
+}
+
+.category__item_type_travel
+{
+    background-image: url(images/category__item_type_travel.jpg);
+}
+
+.category__item_type_movies
+{
+    background-image: url(images/category__item_type_movies.jpg);
+}
+
+.category__item_type_technology
+{
+    background-image: url(images/category__item_type_technology.jpg);
+}
+
+.category__item_type_apple
+{
+    background-image: url(images/category__item_type_apple.jpg);
+}
+
+.category__item_type_android
+{
+    background-image: url(images/category__item_type_android.jpg);
+}
+
+.category__item_type_sport
+{
+    background-image: url(images/category__item_type_sport.jpg);
+}
+
+.category__item_type_animals
+{
+    background-image: url(images/category__item_type_animals.jpg);
+}
+
+.category__item_type_science
+{
+    background-image: url(images/category__item_type_science.jpg);
+}
+
+
+.category__item_type_photos
+{
+    background-image: url(images/category__item_type_photos.jpg);
+}

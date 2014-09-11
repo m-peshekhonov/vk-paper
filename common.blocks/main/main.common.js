@@ -1,4 +1,6 @@
 BN.addDecl('main').blockTemplate(function(ctx) {
+    var json = ctx.json();
+        params = json.js.source;
 
     ctx.js(true);
 
@@ -19,7 +21,7 @@ BN.addDecl('main').blockTemplate(function(ctx) {
                 elem: 'center',
                 content: {
                     block: 'feed',
-                    js: true
+                    js: { source: params }
                 }
             },
             {

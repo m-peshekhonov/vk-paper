@@ -55,7 +55,7 @@ BN.addDecl('i-vk').staticProp({
     _onAuth: function() {
         clearInterval(this._checkAuthInterval);
         this._authWindow.close();
-        BN('i-router').setPath('/feed');
+        BN('i-router').setPath('/category');
         BN('i-router').reload();
     },
 
