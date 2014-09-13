@@ -28,23 +28,28 @@ BEM.JSON.decl('b-page', {
 BN.addDecl('b-page').blockTemplate(function(ctx) {
     ctx.js(true);
 
-    var isLogin = BN('i-cookie').get('vkToken');
+    var isLogin = BN('i-cookie').get('vkToken'),
+        getPath = BN('i-router').getPath();
 
     ctx.mod('login', isLogin ? 'no' : 'yes');
 
-    if(BN('i-router').getPath() === '/category') {
+    if(getPath === '/category') {
         ctx.mod('category', 'yes');
     }
 
-    if (!isLogin && BN('i-router').getPath() != '/') {
+    // Если не залогинены, всегда редиректим на страницу логина
+    if (!isLogin && getPath !== '/') {
         BN('i-router').replacePath('/');
     }
 
-    // if(isLogin && BN('i-router').getPath() != '/feed') {
-    //     BN('i-router').replacePath('/feed');
+    /* Если алогинены, всегда редиректим на страницу feed.
+       Страницу category пока не проверяем.
+    */
+    if(isLogin && (getPath === '/')) {
+        BN('i-router').replacePath('/feed');
 
-    //     return;
-    // }
+        return;
+    }
 
     ctx.content({
         elem: 'inner',

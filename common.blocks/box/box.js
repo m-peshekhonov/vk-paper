@@ -24,7 +24,8 @@ BN.addDecl('box').onSetMod({
 
     var json = ctx.json(),
         data = json.data,
-        text = BN('i-global').linkify(data.text),
+        // Ищем ссылки и заменяем пустые строки на тэг
+        text = BN('i-global').linkify(data.text).replace(/(?:\r\n|\r|\n)/g, '<br>'),
         urlSrcVK = '//vk.com/' + data.screen_name,
         attach = {},
         share = {
@@ -92,11 +93,7 @@ BN.addDecl('box').onSetMod({
                     content: [
                         {
                             elem: 'text-inner',
-                            content: BN('i-global').cutText(text, 500)
-                        },
-                        text.length > 500 && {
-                            elem: 'show-more',
-                            content: 'Показать полностью..'
+                            content: BN('i-global').hashtags(text, data.source_id)
                         }
                     ]
                 },
@@ -131,7 +128,34 @@ BN.addDecl('box').onSetMod({
     repost: function (ctx) {
         var json = ctx.json(),
             data = json.data,
-            gId = String(data.from_id).replace('-', '');
+            gId = String(data.from_id).replace('-', ''),
+            text = BN('i-global').linkify(data.text).replace(/(?:\r\n|\r|\n)/g, '<br>'),
+            attach = {},
+            dataAttaches = data.attachments,
+            docs = [];
+
+        dataAttaches && dataAttaches.forEach(function(item){
+            if(item.type == 'photo') {
+                attach.isPhoto = true;
+            }
+            if(item.type == 'album') {
+                attach.isAlbum = true;
+            }
+            if(item.type == 'link') {
+                attach.isLink = true;
+                attach.link = item.link;
+            }
+
+            if(item.type == 'doc') {
+                attach.isDoc = true;
+                docs.push(item);
+            }
+
+            if(item.type == 'video') {
+                attach.isVideo = true;
+            }
+
+        });
 
         return BN('api-vk')._groupInfo(gId).then(function(res) {
             var res = res[0],
@@ -176,11 +200,23 @@ BN.addDecl('box').onSetMod({
                 },
                 {
                     elem: 'text',
-                    content: BN('i-global').linkify(data.text)
+                    content: BN('i-global').hashtags(text, data.source_id)
                 },
-                {
+                (attach.isVideo || attach.isPhoto) && {
                     elem: 'images',
                     data: data.attachments
+                },
+                attach.isAlbum && {
+                    elem: 'album',
+                    data: data.attachments
+                },
+                attach.isDoc && {
+                    elem: 'docs',
+                    data: docs
+                },
+                attach.isLink && {
+                    block: 'source-block',
+                    data: attach.link
                 }
             ]
         });
@@ -200,10 +236,7 @@ BN.addDecl('box').onSetMod({
                     var isPhoto = item.type === 'photo',
                         isVideo = item.type === 'video';
 
-                    // TODO: пофиксить
-                    if(item.type === 'link') return;
-
-                    return {
+                    return (isPhoto || isVideo) && {
                         block: 'link',
                         mix: { block: 'box', elem: 'photo-wrapper', mods: { type: isPhoto ? 'photo' : 'video' } },
                         url: '#',

@@ -22,12 +22,13 @@ BN.addDecl('api-vk').staticProp({
             timeout: 20000,
             data: options ? jQuery.extend(params, options) : params,
             success: function(data) {
-                // // TODO: доделать обработку ошибок
-                // data.meta.code == '400' &&
-                //     promise.reject(data.meta.error_message);
+                data.error && BN('i-router').reload();
+
                 promise.fulfill(data.response);
             },
-            error: function(err) { promise.reject(err); }
+            error: function(err) {
+                promise.reject(err);
+            }
         });
 
         return promise;

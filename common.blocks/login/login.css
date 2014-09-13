@@ -4,7 +4,7 @@
     font-weight: normal;
     font-style: normal;
 
-    src: url('HelveticaNeueCyr/HelveticaNeueCyr-Thin.otf');
+    src: url('font/HelveticaNeueCyr-Thin.otf');
 }
 
 @font-face
@@ -13,7 +13,7 @@
     font-weight: normal;
     font-style: normal;
 
-    src: url('HelveticaNeueCyr/HelveticaNeueCyr-UltraLight.otf');
+    src: url('font/HelveticaNeueCyr-UltraLight.otf');
 }
 
 .login
@@ -231,10 +231,11 @@
 
 .login__footer
 {
-    padding: 40px 10% 35px;
     font-family: 'Neue';
 
-    background-color: #242424;
+    padding: 40px 10% 35px;
+
+    background-color: #1f1f21;
 }
 
 .footer__menu,

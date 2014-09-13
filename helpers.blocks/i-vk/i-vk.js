@@ -62,7 +62,7 @@ BN.addDecl('i-vk').staticProp({
     logout: function() {
         this._token = null;
         this._clearCookie();
-        BN('i-router').setPath('/', true);
+        BN('i-router').setPath('http://127.0.0.1:3000', true);
         BN('i-router').reload();
     },
 

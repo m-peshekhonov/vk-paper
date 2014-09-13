@@ -4,6 +4,11 @@
     margin: 10px 20px 0 0;
 }
 
+.main__left-inner
+{
+    position: fixed;
+}
+
 .main__center
 {
     position: relative;

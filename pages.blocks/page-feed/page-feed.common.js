@@ -9,7 +9,7 @@ BN.addDecl('page-feed', 'page', {
             source = {
                 'design': ['g4384363', 'g34580489', 'g36048400', 'g36045680'],
                 'polytics': ['g20035339', 'g15548215', 'g15755094', 'g49388814'],
-                'default' : ['g20035339']
+                'default' : ['g442']
             };
 
         if(!feed) hash = 'default';

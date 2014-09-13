@@ -45,7 +45,7 @@
             animation: bouncedelay 1.4s infinite ease-in-out;
 
     border-radius: 100%;
-    background-color: rgba(76, 113, 168, .6);
+    background-color: rgba(52, 73, 94, .6);
 
     -webkit-animation-fill-mode: both;
             animation-fill-mode: both;

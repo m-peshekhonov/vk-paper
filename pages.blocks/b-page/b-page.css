@@ -8,7 +8,7 @@
 .b-page
 {
 
-    background: #f3f4f5;
+    background: #ecf0f1;
     font: 13px/18px 'Lucida Sans Unicode', Arial, Helvetica, Verdana, sans-serif;
 
     margin: 0;
@@ -30,7 +30,7 @@
 .b-page_login_yes .header
 {
 
-    background: rgba(71, 108, 163, .7);
+    background: rgba(52, 73, 94, .65);
     box-shadow: none;
     margin: -17px auto 0;
     position: relative;

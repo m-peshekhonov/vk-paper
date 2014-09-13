@@ -1,10 +1,9 @@
 BN.addDecl('feed').onSetMod({
     js: function() {
         this._page = this.findBlockOutside('b-page');
+        this._page.delMod('login');
 
         this._source = this.params.source;
-
-        this._page.delMod('login');
 
         this.firstLoad();
     }
@@ -33,7 +32,6 @@ BN.addDecl('feed').onSetMod({
                         items.forEach(function(item) {
                             var itemGID = String(item.source_id).slice(1);
 
-
                             if(+itemGID === gItem.id) {
                                 item.name = gItem.name;
                                 item.screen_name = gItem.screen_name;
@@ -54,7 +52,7 @@ BN.addDecl('feed').onSetMod({
 
                 setTimeout(function () {
                     _this._page.delMod('loading');
-                }, 600);
+                }, 300);
             });
 
         }.bind(this)).fail(function(err) {

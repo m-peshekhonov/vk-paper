@@ -4,7 +4,7 @@ BN.addDecl('scroll-top').onSetMod({
             page = this.findBlockOutside('b-page'),
             scrollBlock = this;
 
-        $(window).on('scroll', $.throttle(scroll_show, 200));
+        $(window).on('scroll', $.throttle(scroll_show, 250));
 
         this.bindTo('mousedown', function () {
             page.domElem.scrollTop(0);
@@ -14,7 +14,8 @@ BN.addDecl('scroll-top').onSetMod({
             var top = $(this).scrollTop();
 
             if(top > OFFSET_TOP) {
-                scrollBlock.setMod('show', 'yes');
+                if(!scrollBlock.hasMod('show', 'yes'))
+                    scrollBlock.setMod('show', 'yes');
             } else if (scrollBlock.hasMod('show', 'yes') && top < OFFSET_TOP) {
                 scrollBlock.delMod('show');
             }
