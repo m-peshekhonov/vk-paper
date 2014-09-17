@@ -3,7 +3,7 @@ BN.addDecl('user').onSetMod({
         this.loadInfo();
     }
 }).elemTemplate({
-    'inner': function (ctx) {
+    inner: function (ctx) {
         var json = ctx.json(),
             data = json.data;
 

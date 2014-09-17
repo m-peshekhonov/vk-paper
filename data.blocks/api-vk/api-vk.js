@@ -74,6 +74,18 @@ BN.addDecl('api-vk').staticProp({
         var url = this._apiHost + 'photos.get?count=' + count + '&owner_id=' + owner_id + '&album_id=' + item_id;
 
         return this._request(url);
+    },
+
+    setStorage: function (source) {
+        var url = this._apiHost + 'storage.set?key=source&value=' + source + '&user_id=' + this._params.client_id;
+
+        return this._request(url);
+    },
+
+    getStorage: function () {
+        var url = this._apiHost + 'storage.get?key=source&user_id' + this._params.client_id;
+
+        return this._request(url);
     }
 
 });

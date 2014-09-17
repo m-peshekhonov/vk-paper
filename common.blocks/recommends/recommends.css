@@ -3,15 +3,11 @@
     margin-bottom: 12px;
 
     cursor: pointer;
-    -webkit-transition: .2s;
-       -moz-transition: .2s;
-         -o-transition: .2s;
-            transition: .2s;
 }
 
 .recommends__item:hover .recommends__avatar
 {
-    opacity: .7;
+    opacity: .75;
 }
 
 .recommends__button
@@ -34,6 +30,10 @@
     margin-right: 10px;
 
     cursor: pointer;
+    -webkit-transition: .15s;
+       -moz-transition: .15s;
+         -o-transition: .15s;
+            transition: .15s;
 
     background-color: rgba(0, 0, 0, .1);
     background-repeat: no-repeat;

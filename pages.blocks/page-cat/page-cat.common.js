@@ -1,5 +1,5 @@
 BN.addDecl('page-cat', 'page', {
-    route: /^\/(category)?$/
+    route: /^\/(category)\/?$/
 }).staticProp({
     init: function () {
         return this.out({

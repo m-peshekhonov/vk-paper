@@ -31,7 +31,7 @@ BN.addDecl('b-page').blockTemplate(function(ctx) {
     var isLogin = BN('i-cookie').get('vkToken'),
         getPath = BN('i-router').getPath();
 
-    ctx.mod('login', isLogin ? 'no' : 'yes');
+    ctx.mod('login', isLogin ? 'yes' : 'no');
 
     if(getPath === '/category') {
         ctx.mod('category', 'yes');
@@ -42,7 +42,7 @@ BN.addDecl('b-page').blockTemplate(function(ctx) {
         BN('i-router').replacePath('/');
     }
 
-    /* Если алогинены, всегда редиректим на страницу feed.
+    /* Если залогинены, всегда редиректим на страницу feed.
        Страницу category пока не проверяем.
     */
     if(isLogin && (getPath === '/')) {

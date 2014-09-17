@@ -2,12 +2,10 @@
 {
     position: relative;
 
-    margin: 10px 0 15px;
     padding: 15px;
 
-    border-radius: 2px;
     background: #fff;
-    box-shadow: 0 0 0 1px rgba(0, 0, 0, .06);
+    box-shadow: 0 0 0 1px rgba(0, 0, 0, .1);
 }
 
 .box__avatar

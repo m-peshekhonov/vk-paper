@@ -5,18 +5,13 @@ BN.addDecl('page-feed', 'page', {
 
         var feed = matchers[1],
             cat = matchers[2],
-            hash = cat !== '/' ? cat.replace(/\/$/, '') : 'default',
-            source = {
-                'design': ['g4384363', 'g34580489', 'g36048400', 'g36045680'],
-                'polytics': ['g20035339', 'g15548215', 'g15755094', 'g49388814'],
-                'default' : ['g442']
-            };
+            hash = cat !== '/' ? cat.replace(/\/$/, '') : 'user';
 
-        if(!feed) hash = 'default';
+        if(!feed) hash = 'user';
 
         return this.out({
             block: 'main',
-            js: { source: source[hash] }
+            js: { source: hash }
         });
     }
 });

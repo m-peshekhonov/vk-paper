@@ -1,0 +1,12 @@
+.cf:before,
+.cf:after
+{
+    display: table;
+
+    content: '';
+}
+
+.cf:after
+{
+    clear: both;
+}

@@ -23,7 +23,7 @@ BN.addDecl('main').blockTemplate(function(ctx) {
                 elem: 'center',
                 content: {
                     block: 'feed',
-                    js: { source: json.js.source } // id групп (категорий)
+                    js: { source: json.js.source } // названия категорий (групп,страниц)
                 }
             },
             {

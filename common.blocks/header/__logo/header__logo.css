@@ -1,0 +1,47 @@
+.header__logo
+{
+    font-family: 'arista';
+    font-size: 24px;
+
+    width: 124px;
+    margin: 14px 0 16px 50px;
+
+    cursor: default;
+
+    color: #fff;
+}
+
+.header__logo:before
+{
+    position: absolute;
+
+    width: 34px;
+    height: 32px;
+    margin: -7px 0 0 -39px;
+
+    content: '';
+
+    -webkit-transition: .15s;
+       -moz-transition: .15s;
+         -o-transition: .15s;
+            transition: .15s;
+
+    background-image: url(header__logo.png);
+    background-size: 100%;
+}
+
+.b-page_feed_yes .header__logo
+{
+    cursor: pointer;
+}
+
+.b-page_feed_yes .header__logo:active.header__logo:before
+{
+    background-image: url(header__logo_active.png);
+}
+
+.b-page_login_no .header__logo:before,
+.b-page_login_no .header__logo:active.header__logo:before
+{
+    background-image: url(header__logo_login.png);
+}

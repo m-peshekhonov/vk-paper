@@ -5,13 +5,50 @@
     text-align: center;
 }
 
-.category__title
+.category__inner
+{
+    margin-bottom: 15px;
+}
+
+.category__top
+{
+    padding: 20px 5px 15px;
+}
+
+.category__title,
+.category__title-link
 {
     font-size: 26px;
 
-    padding: 35px 0;
+    float: left;
 
-    text-align: center;
+    padding: 20px 0;
+}
+
+.category__title,
+.category__title-link,
+.category__button
+{
+    display: inline-block;
+
+    vertical-align: middle;
+}
+
+.category__title-link
+{
+    padding-left: 22px;
+}
+
+.category__title-link:before
+{
+    font-size: 65px;
+
+    position: absolute;
+
+    margin-top: -1px;
+    margin-left: -25px;
+
+    content: '‹';
 }
 
 .category__item
@@ -23,13 +60,12 @@
     display: inline-block;
     overflow: hidden;
 
-    text-align: left;
-
     width: 240px;
     height: 165px;
     margin: 5px;
 
     cursor: pointer;
+    text-align: left;
     vertical-align: top;
 
     color: #fff;
@@ -53,6 +89,9 @@
     padding: 20px 0 0 20px;
 
     -webkit-transition: .3s;
+       -moz-transition: .3s;
+         -o-transition: .3s;
+            transition: .3s;
 
     background-color: rgba(0, 0, 0, .2);
     background-position: 46% 40%;
@@ -61,7 +100,8 @@
 .category__item_active_yes .category__item-title,
 .category__item-title:hover
 {
-    background: rgba(0, 0, 0, 0.35) url(check.png);
+    background-color: rgba(0, 0, 0, .1);
+    background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACgAAAAhCAQAAAAB+CEuAAABPUlEQVRIDe3BMUuUAQAG4Ffyw8houKUwNCT8AUKIS9DgdOBUi4OD4NTSZAQNDi7n4T9oiiQIWi3BVf+B4JQukiKaEQVXcD3hIkR3euoHLfc8SVfX/+K+l94oUg4PbeFAJWXwwB5+qaYM7vqEppmUQcUHfPc0ZXDDaxwaSxkUlnBsMq14bExPOuaaRXwxnVZUfHPgWTqkxwsnZtOaQg0/zaQjpp14nvZcV/fbsSc5l0k/sKTIWfT5iEOPciZVn/FKX87jnvfYN562jNvDWzfTCbetYMdwWjJsByvupFMGrWPDUP5hyAbWDeYijNjEmoH8xYA1bBrJRRm1jVX9OaXfKraN5jJM2MVyTlnGrolclqoj1PQmetVwpJqrMKWhacEtC5oapnJV5jQ1vNPQNJcymMdXzKccCnWL6op0tfMHgRkSwsItoCwAAAAASUVORK5CYII=);
     background-repeat: no-repeat;
     background-position: 46% 45%;
 }
@@ -74,16 +114,15 @@
 
 .category__button
 {
-    font-size: 24px;
+    font-size: 26px;
 
     position: relative;
 
-    display: inline-block;
+    float: right;
 
-    margin: 50px 45px;
-    padding: 25px 70px 20px;
+    padding: 20px 38px;
 
-    cursor: pointer;
+    cursor: default;
     -webkit-transition: .2s;
        -moz-transition: .2s;
         -ms-transition: .2s;
@@ -93,6 +132,13 @@
 
     color: #fff;
     border-radius: 5px;
+    background: #7f8c8d;
+}
+
+.category__button_active_yes
+{
+    cursor: pointer;
+
     background: #5281bd;
 }
 

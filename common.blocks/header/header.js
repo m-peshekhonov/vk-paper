@@ -1,5 +1,5 @@
 BN.addDecl('header').onSetMod({
-    'js': function() {
+    js: function() {
         this._page = this.findBlockOutside('b-page');
     }
 }).instanceProp({
@@ -11,10 +11,14 @@ BN.addDecl('header').onSetMod({
 }).staticProp({
     live: function () {
         this.liveBindTo('logo', 'click', function() {
-            this._updatePage();
+            if(this._page.hasMod('feed', 'yes')) {
+                this._updatePage();
+            }
         });
 
         this.liveBindTo('exit', 'click', function(e) {
+            e.preventDefault();
+
             BN('i-vk').logout();
 
             return false;

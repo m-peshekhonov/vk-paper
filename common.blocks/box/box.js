@@ -265,7 +265,6 @@ BN.addDecl('box').onSetMod({
             data = json.data,
             album = data[0].album;
 
-
         return BN('api-vk').getPhotos(album.owner_id, album.id, 15).then(function(data) {
             return {
                 elem: 'albums-inner',
@@ -296,7 +295,7 @@ BN.addDecl('box').onSetMod({
                             },
                             {
                                 elem: 'count-photos',
-                                content: 5 + ' фото'
+                                content: album.size + ' фото'
                             }
                         ]
                     }

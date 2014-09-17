@@ -12,12 +12,11 @@
     height: 100px;
     margin-right: 15px;
 
-    background-size: 100%;
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-color: rgba(0,0,0,.1);
-
     border-radius: 2px;
+    background-color: rgba(0, 0, 0, .1);
+    background-repeat: no-repeat;
+    background-size: 100%;
+    background-size: cover;
 }
 
 .source-block__image,

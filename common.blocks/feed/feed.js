@@ -1,13 +1,43 @@
 BN.addDecl('feed').onSetMod({
     js: function() {
+        var sourceObj = BN('i-category').get(),
+            paramsSource = this.params.source;
+
         this._page = this.findBlockOutside('b-page');
-        this._page.delMod('login');
+        this._source = [];
 
-        this._source = this.params.source;
+        this._page.setMod('feed', 'yes');
 
-        this.firstLoad();
+        /* Если зашли на страницу /feed/, то достаем названия выбранных юзером категорий из VK Storage.
+           Иначе берём имя категории из параметров переданных из b-page и достаём id i-category.
+         */
+        if (paramsSource == 'user')  {
+            this.getId();
+        } else {
+            this._source.push(sourceObj[paramsSource]);
+            this.firstLoad();
+        }
     }
 }).instanceProp({
+    getId: function () {
+        var _this = this;
+
+        BN('api-vk').getStorage().then(function (data) {
+            var categoryObj = BN('i-category').get(),
+                names = data.split(',');
+
+            for(key in categoryObj) {
+               names.forEach(function(item){
+                  if(item === key) {
+                      _this._source.push(categoryObj[key]);
+                  }
+               });
+            }
+
+            _this.firstLoad();
+        });
+    },
+
     firstLoad: function(force) {
         this._page.setMod('loading', 'yes');
 

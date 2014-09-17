@@ -2,7 +2,8 @@
     mustDeps: [
         { block: 'i-global' },
         { block: 'i-router' },
-        { block: 'i-collage' }
+        { block: 'i-collage' },
+        { block: 'i-category' }
     ],
     shouldDeps: [
         // data blocks
@@ -17,6 +18,7 @@
         { block: 'picture' },
         { block: 'button' },
         { block: 'icon' },
+        { block: 'cf' },
         // common block's
         { block: 'header' },
         { block: 'content' },
