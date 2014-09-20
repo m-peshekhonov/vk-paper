@@ -63,7 +63,7 @@ BN.addDecl('i-global').staticProp({
     },
 
     hashtags: function (text, id) {
-        var pattern = /(#[a-zа-я0-9][a-zа-я0-9(@.)]*)/ig,
+        var pattern = /(#[a-zа-я0-9][a-zа-я0-9(@._)]*)/ig,
             isWall = false,
             wallQ;
 

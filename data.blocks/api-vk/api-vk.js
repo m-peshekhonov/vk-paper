@@ -47,10 +47,9 @@ BN.addDecl('api-vk').staticProp({
 
         return this._request(url);
     },
-
     // список новостей
-    _getPosts: function(posts) {
-        var url = this._apiHost + 'newsfeed.get?count=10&filters=post&source_ids=' + posts;
+    _getPosts: function(next_url, posts) {
+        var url = this._apiHost + 'newsfeed.get?count=10&start_from=' + next_url + '&filters=post&source_ids=' + posts;
 
         return this._request(url);
     },

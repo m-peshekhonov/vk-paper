@@ -17,6 +17,8 @@ BN.addDecl('feed').onSetMod({
             this._source.push(sourceObj[paramsSource]);
             this.firstLoad();
         }
+
+        $(window).on('scroll', jQuery.throttle(this._onScroll.bind(this), 400));
     }
 }).instanceProp({
     getId: function () {
@@ -41,16 +43,18 @@ BN.addDecl('feed').onSetMod({
     firstLoad: function(force) {
         this._page.setMod('loading', 'yes');
 
-        this.loadPortion(force, this._source);
+        this.loadPortion(null, force, this._source);
     },
-    loadPortion: function(force, source) {
+    loadPortion: function(url, force, source) {
 
-        BN('api-vk')._getPosts(source).then(function(data) {
+        BN('api-vk')._getPosts(url, source).then(function(data) {
             var _this = this,
                 groupsId = [],
                 news = [],
                 items = data.items,
                 action = force ? 'update' : 'append';
+
+            console.log(data);
 
             data.items.forEach(function(item) {
                 groupsId.push(String(item.source_id).slice(1));
@@ -85,10 +89,31 @@ BN.addDecl('feed').onSetMod({
                 }, 300);
             });
 
+            _this._afterLoad(data.next_from);
+
         }.bind(this)).fail(function(err) {
             console.log('fail');
             this._page.delMod('loading');
         }.bind(this));
 
+    },
+    _afterLoad: function(pager) {
+        this._progress = false;
+        this._nextUrl = pager;
+
+        // последняя ли это страница
+        this._isLastPage = !pager;
+    },
+    _onScroll: function() {
+        var page = this._page.domElem;
+
+        var scrollTop = page.scrollTop(),
+            viewport = 1000 + scrollTop,
+            scrollHeight = page.prop('scrollHeight');
+
+        if (viewport >= scrollHeight - 600 && !this._progress) {
+            this._progress = true;
+            this.loadPortion(this._nextUrl, null, this._source);
+        }
     }
 });

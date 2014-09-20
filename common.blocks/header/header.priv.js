@@ -26,13 +26,13 @@ BN.addDecl('header').blockTemplate(function(ctx) {
                     content: [
                         {
                             elem: 'item',
-                            url: '/category?back=yes',
-                            content: 'Источники'
+                            url: '/feed',
+                            content: 'Лента'
                         },
                         {
                             elem: 'item',
-                            url: '#',
-                            content: 'Настройки'
+                            url: '/category?back=yes',
+                            content: 'Источники'
                         },
                         {
                             elem: 'item',
