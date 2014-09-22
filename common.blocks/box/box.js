@@ -19,6 +19,12 @@ BN.addDecl('box').onSetMod({
         BN('i-global').onImagesLoaded(albumsContainer, function () {
             BN('i-collage').init(albumsContainer, 100);
         });
+
+        this.bindTo('source', 'click', function (e) {
+            var id = String(this.elemParams(e.data.domElem).id).replace('-', '');
+
+            BN('i-router').setPath('/feed/' + id);
+        });
     }
 }).blockTemplate(function (ctx) {
 
@@ -62,11 +68,22 @@ BN.addDecl('box').onSetMod({
 
     ctx.js(true);
 
+    data.isFirst && ctx.mod('first', 'yes');
+
     ctx.content([
         {
             block: 'image',
-            mix: { block: 'box', elem: 'avatar' },
-            url: urlSrcVK,
+            mix: [
+                {
+                    block: 'box',
+                    elem: 'avatar',
+                    js: { id: data.source_id }
+                },
+                {
+                    block: 'box',
+                    elem: 'source'
+                }
+            ],
             target: '_blank',
             src: data.photo
         },
@@ -75,9 +92,17 @@ BN.addDecl('box').onSetMod({
             content: [
                 {
                     block: 'link',
-                    url: urlSrcVK,
-                    target: '_blank',
-                    mix: { block: 'box', elem: 'title' },
+                    mix: [
+                        {
+                            block: 'box',
+                            elem: 'title',
+                            js: { id: data.source_id }
+                        },
+                        {
+                            block: 'box',
+                            elem: 'source'
+                        }
+                    ],
                     content: data.name || ''
                 },
                 {

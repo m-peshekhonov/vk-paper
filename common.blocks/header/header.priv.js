@@ -26,7 +26,7 @@ BN.addDecl('header').blockTemplate(function(ctx) {
                     content: [
                         {
                             elem: 'item',
-                            url: '/feed',
+                            url: '/feed/',
                             content: 'Лента'
                         },
                         {

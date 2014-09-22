@@ -22,7 +22,13 @@
 
 .button_arrow_yes
 {
-    background: url(http://serp.kovchiy.isam.yandex.ru/blocks.common/button/i/right-m.svg);
+    background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACgAAAAdCAQAAAByQOb4AAABqUlEQVR4Aa3OvUuVDxzG4UuIcqkE3zoGNRs4JAWFWBTpn9DQ25RRkDZGW0GNDkJQQzVJL5CpwQ8anIJDRUNEZKFBQ0clNQ+YVPQrvp3lgPo8R0/0XJ/95vbPzhuQoRovhesytNmzrCd5IVyRqXz2k2PlySemVjSjYMhWlWwxpGBawUeTJrz3zlt5r4RwkzFzZpc1pSjMqJOm3rRQNKto0ZJvfvjpf0WfhDAqVZ9Q0Gi1BgWhT5r/hFsqOivM2W65nBnhjDSDwm1r6hUW7VS2w4JwQZpHwh3r6hG+yoFmS0KvpA2GhBFVOSUsqLXRF6FHmsHq5+Ck8MGkcEK6o274K5eFcFVG9pj12y/zdkvX7bSq7RPCLq1C2C+pxoRwTlUOCKETdArhkKQ289VNdgmhW9kRIXRJalEUjltTR+JR+eVBSTkLwjEVHRZCh9X2ll+neFOe7DeyqsdCaJemXQijhks99KDUfffc1e+pEC7xWSSa1qaSVlMipe9CeE2dBvUrarCeRk2lmm0rldOiCcNC3iYZ6RPyMnNNeJ7t3LjMDAjjamXmorHlc38AAS/PLT1odDoAAAAASUVORK5CYII=);
     background-repeat: no-repeat;
     background-position: 94% 50%;
+    background-size: 16px;
+}
+
+.button_arrow_yes:active
+{
+    background-color: #f7f8f9;
 }

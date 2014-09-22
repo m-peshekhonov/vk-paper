@@ -1,10 +1,11 @@
 BN.addDecl('login').onSetMod({
     js: function() {
-        // console.log('init');
+        this.page = this.findBlockOutside('b-page');
     }
 }).staticProp({
     live:  function () {
         this.liveBindTo('enter', 'click', function() {
+            this.page.domElem.scrollTop(0);
             BN('i-vk').login();
         });
 

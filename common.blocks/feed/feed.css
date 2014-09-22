@@ -1,4 +1,7 @@
 .feed
 {
-    margin-top: 11px;
+    margin-top: -7px;
+
+    border-left: 2px solid #E6E8EB;
+    border-right: 2px solid #E6E8EB;
 }

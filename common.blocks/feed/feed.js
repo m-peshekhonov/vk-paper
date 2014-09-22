@@ -11,10 +11,12 @@ BN.addDecl('feed').onSetMod({
         /* Если зашли на страницу /feed/, то достаем названия выбранных юзером категорий из VK Storage.
            Иначе берём имя категории из параметров переданных из b-page и достаём id i-category.
          */
+
         if (paramsSource == 'user')  {
             this.getId();
         } else {
-            this._source.push(sourceObj[paramsSource]);
+            // Если нет категории, значит в урле id. Тогда подгружаем конкретный паблик
+            this._source.push(sourceObj[paramsSource] || paramsSource.replace('', 'g'));
             this.firstLoad();
         }
 
@@ -54,8 +56,6 @@ BN.addDecl('feed').onSetMod({
                 items = data.items,
                 action = force ? 'update' : 'append';
 
-            console.log(data);
-
             data.items.forEach(function(item) {
                 groupsId.push(String(item.source_id).slice(1));
             });
@@ -75,7 +75,9 @@ BN.addDecl('feed').onSetMod({
                         });
 
                     });
-                var news = items.map(function(item) {
+                var news = items.map(function(item, pos) {
+                    pos === 0 && (item.isFirst = true);
+
                     return {
                         block: 'box',
                         data: item
