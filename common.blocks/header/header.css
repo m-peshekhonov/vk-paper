@@ -41,9 +41,7 @@
 
 .header__menu
 {
-    float: right;
-
-    margin: 15px 210px 0 0;
+    margin-left: 118px;
 
     list-style: none;
 }

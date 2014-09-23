@@ -14,7 +14,8 @@ BN.addDecl('main').blockTemplate(function(ctx) {
                             js: true
                         },
                         {
-                            block: 'usermenu'
+                            block: 'usermenu',
+                            js: { matchers: BN('i-router').getMatchers() }
                         }
                     ]
                 }

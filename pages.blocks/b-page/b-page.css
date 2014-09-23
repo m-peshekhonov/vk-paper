@@ -8,7 +8,7 @@
 .b-page
 {
 
-    background: #fff;
+    background: #f7f7f7;
     font: 13px/18px 'Lucida Sans Unicode', Arial, Helvetica, Verdana, sans-serif;
 
     margin: 0;
@@ -74,4 +74,9 @@
 .b-page_category_yes .header__menu
 {
     display: none;
+}
+
+.b-page_cat-back_yes .header__menu
+{
+    margin-left: 337px;
 }

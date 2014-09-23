@@ -27,12 +27,15 @@
     cursor: pointer;
 }
 
-.usermenu__menu .link:hover
-{
-    background: #F0F4F9;
-}
-
 .usermenu__menu .link:hover .icon
 {
     color: #5a7fa7;
+}
+
+.usermenu__menu  .menu__item_active_yes .link,
+.usermenu__menu  .menu__item_active_yes .link .icon
+{
+    color: #040915;
+
+    cursor: default;
 }
