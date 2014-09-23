@@ -94,7 +94,7 @@ BN.addDecl('feed').onSetMod({
             _this._afterLoad(data.next_from);
 
         }.bind(this)).fail(function(err) {
-            console.log('fail');
+            console.log('fail feed');
             this._page.delMod('loading');
         }.bind(this));
 

@@ -40,6 +40,8 @@ BN.addDecl('user').onSetMod({
                 };
 
             BN('i-content').update(this.domElem, info);
+        }.bind(this)).fail(function(err) {
+            console.log('fail userinfo');
         }.bind(this));
     }
 });
