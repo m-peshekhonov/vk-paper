@@ -6,7 +6,8 @@ BN.addDecl('category').onSetMod({
         this._page.delMod('feed');
 
         var params = BN('i-router').getParams();
-            hasBack = params.back;
+            hasBack = params.back,
+            LSSource = localStorage.getItem('VKSource');
 
         hasBack && this._page.setMod('cat-back', 'yes');
 
@@ -20,11 +21,15 @@ BN.addDecl('category').onSetMod({
         /*  Если в хранилище есть рубрики, делаем их активными.
             Иначе this._source до клика на item остаётся пустым.
         */
-        BN('api-vk').getStorage().then(function (data) {
-            if (!data.length) return;
+        if (LSSource) {
+            this.setActiveItem(LSSource);
+        } else {
+            BN('api-vk').getStorage().then(function (data) {
+                if (!data.length) return;
 
-            this.setActiveItem(data);
-        }.bind(this));
+                this.setActiveItem(data);
+            }.bind(this));
+        }
 
         this.bindTo('button', 'click', this.saveStorage);
 
@@ -64,8 +69,9 @@ BN.addDecl('category').onSetMod({
     },
 
     saveStorage: function () {
-        if(this.hasMod(this.elem('button'), 'active', 'yes')) {
-            BN('api-vk').setStorage(this._source);
+        if (this.hasMod(this.elem('button'), 'active', 'yes')) {
+            BN('api-vk').setStorage(this._source); // Сохраняем в VK Storage
+            localStorage.setItem('VKSource', this._source); // Сохраняем в Local Storage
             BN('i-router').setPath('/feed');
 
             this._page.delMod('category');

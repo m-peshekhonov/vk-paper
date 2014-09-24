@@ -11,9 +11,8 @@ BN.addDecl('feed').onSetMod({
         /* Если зашли на страницу /feed/, то достаем названия выбранных юзером категорий из VK Storage.
            Иначе берём имя категории из параметров переданных из b-page и достаём id i-category.
          */
-
         if (paramsSource == 'user')  {
-            this.getId();
+            this.getSourceName();
         } else {
             // Если нет категории, значит в урле id. Тогда подгружаем конкретный паблик
             this._source.push(sourceObj[paramsSource] || paramsSource.replace('', 'g'));
@@ -23,23 +22,38 @@ BN.addDecl('feed').onSetMod({
         $(window).on('scroll', jQuery.throttle(this._onScroll.bind(this), 400));
     }
 }).instanceProp({
-    getId: function () {
-        var _this = this;
+    getSourceName: function () {
+        var _this = this,
+            categoryObj = BN('i-category').get(),
+            LSSource = localStorage.getItem('VKSource');
 
-        BN('api-vk').getStorage().then(function (data) {
-            var categoryObj = BN('i-category').get(),
-                names = data.split(',');
+        /* Если зашли первый раз - вытягиваем данные из VK Storage и записываем их в localStorage.
+           В дальнейшем всегда вытягиваем и LS, ибо быстрее! */
+        if(!LSSource) {
+            BN('api-vk').getStorage().then(function (data) {
+                _this.getSourceId(categoryObj, data);
 
-            for(key in categoryObj) {
-               names.forEach(function(item){
-                  if(item === key) {
-                      _this._source.push(categoryObj[key]);
-                  }
-               });
-            }
+                localStorage.setItem('VKSource', data);
 
-            _this.firstLoad();
-        });
+                _this.firstLoad();
+            });
+        } else {
+            this.getSourceId(categoryObj, LSSource);
+
+            this.firstLoad();
+        }
+    },
+
+    getSourceId: function (cat, names) {
+        names = typeof names === 'string' ? names.split(',') : names;
+
+        for(key in cat) {
+            names.forEach(function(item){
+                if(item === key) {
+                    this._source.push(cat[key]);
+                }
+            }.bind(this));
+        }
     },
 
     firstLoad: function(force) {
@@ -50,48 +64,41 @@ BN.addDecl('feed').onSetMod({
     loadPortion: function(url, force, source) {
 
         BN('api-vk')._getPosts(url, source).then(function(data) {
-            var _this = this,
-                groupsId = [],
-                news = [],
+            var news = [],
                 items = data.items,
                 action = force ? 'update' : 'append';
 
-            data.items.forEach(function(item) {
-                groupsId.push(String(item.source_id).slice(1));
-            });
+            data.groups.forEach(function(gItem) {
 
-            BN('api-vk')._groupInfo(groupsId).then(function(data) {
-                    data.forEach(function(gItem) {
+                items.forEach(function(item) {
+                    var itemGID = String(item.source_id).slice(1);
 
-                        items.forEach(function(item) {
-                            var itemGID = String(item.source_id).slice(1);
-
-                            if(+itemGID === gItem.id) {
-                                item.name = gItem.name;
-                                item.screen_name = gItem.screen_name;
-                                item.photo = gItem.photo_100;
-                            }
-
-                        });
-
-                    });
-                var news = items.map(function(item, pos) {
-                    pos === 0 && (item.isFirst = true);
-
-                    return {
-                        block: 'box',
-                        data: item
+                    if(+itemGID === gItem.id) {
+                        item.name = gItem.name;
+                        item.screen_name = gItem.screen_name;
+                        item.photo = gItem.photo_100;
                     }
-                }, _this);
 
-                BN('i-content')[action](_this.domElem, news);
+                });
 
-                setTimeout(function () {
-                    _this._page.delMod('loading');
-                }, 300);
             });
 
-            _this._afterLoad(data.next_from);
+            var news = items.map(function(item, pos) {
+                pos === 0 && (item.isFirst = true);
+
+                return {
+                    block: 'box',
+                    data: item
+                }
+            });
+
+            BN('i-content')[action](this.domElem, news);
+
+            setTimeout(function () {
+                this._page.delMod('loading');
+            }.bind(this), 250);
+
+            this._afterLoad(data.next_from);
 
         }.bind(this)).fail(function(err) {
             console.log('fail feed');
