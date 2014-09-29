@@ -1,20 +1,28 @@
 BN.addDecl('usermenu').onSetMod({
     js: function () {
-        var _this = this;
+        var _this = this,
+            path = BN('i-router').getPath().split('/').filter(isNotEmpty);
 
         this._menu = this.findBlockInside('menu');
-        // this._matcher = this.params.matchers[2].replace('/', '') || 'feed';
+        this._matcher = path[path.length - 1];
 
-        // this._setActivePage();
+        function isNotEmpty(item) {
+            return item !== '';
+        }
 
-        // BEM.channel('i-router').on('update', function() {
-        //     _this._setActivePage();
-        // });
+        this._setActivePage();
+
+        BEM.channel('i-router').on('update', function() {
+            _this._matcher = BN('i-router').getMatchers()[2].replace('/', '') || 'feed';
+
+            _this._setActivePage();
+        });
     }
 }).instanceProp({
     _setActivePage: function () {
         var item = this._menu.elem('item', 'type', this._matcher);
 
+        this._menu.delMod(this._menu.elem('item'), 'active');
         this._menu.setMod(item, 'active', 'yes');
     }
 }).blockTemplate(function(ctx) {

@@ -100,7 +100,7 @@ BN.addDecl('feed').onSetMod({
 
             setTimeout(function () {
                 this._loader.delMod('loading');
-            }.bind(this), 300);
+            }.bind(this), 400);
 
             this._afterLoad(data.next_from);
 
@@ -118,9 +118,8 @@ BN.addDecl('feed').onSetMod({
         this._isLastPage = !pager;
     },
     _onScroll: function() {
-        var page = this._page.domElem;
-
-        var scrollTop = page.scrollTop(),
+        var page = this._page.domElem,
+            scrollTop = page.scrollTop(),
             viewport = 1000 + scrollTop,
             scrollHeight = page.prop('scrollHeight');
 

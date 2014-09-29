@@ -27,6 +27,12 @@
     width: 1000px;
 }
 
+.b-page_category_yes .category
+{
+    box-shadow: none;
+    background: transparent;
+}
+
 .b-page_category_yes .category__item
 {
     font-size: 20px;

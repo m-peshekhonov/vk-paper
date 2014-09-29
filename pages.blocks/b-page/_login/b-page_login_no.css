@@ -32,12 +32,6 @@
     margin: 33px 0 21px;
 }
 
-.b-page_login_no .content
-{
-    width: 100%;
-    margin-top: 0;
-}
-
 .b-page_login_no .main__left,
 .b-page_login_no .main__right
 {
@@ -45,8 +39,9 @@
 }
 
 .b-page_login_no .main__center,
-.b-page_login_no .main
+.b-page_login_no .main,
+.b-page_login_no .content
 {
     width: 100%;
-    margin-top: 0;
+    margin: 0;
 }

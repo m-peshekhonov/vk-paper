@@ -32,7 +32,6 @@ BN.addDecl('box').onSetMod({
         data = json.data,
         // Ищем ссылки и заменяем пустые строки на тэг
         text = BN('i-global').linkify(data.text).replace(/(?:\r\n|\r|\n)/g, '<br>'),
-        urlSrcVK = '//vk.com/' + data.screen_name,
         attach = {},
         share = {
             likes: data.likes,
