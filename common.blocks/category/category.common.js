@@ -6,10 +6,7 @@ BN.addDecl('category').onSetMod({
         this._page.delMod('feed');
 
         var params = BN('i-router').getParams();
-            hasBack = params.back,
             LSSource = localStorage.getItem('VKSource');
-
-        hasBack && this._page.setMod('cat-back', 'yes');
 
         this.bindTo('item', 'click', function (e) {
             this.toggleMod($(e.data.domElem), 'active', 'yes');
@@ -32,10 +29,6 @@ BN.addDecl('category').onSetMod({
         }
 
         this.bindTo('button', 'click', this.saveStorage);
-
-        BEM.channel('i-router').on('update', function() {
-            this._page.delMod('cat-back');
-        }.bind(this));
     }
 }).instanceProp({
     setActiveItem: function (data) {
@@ -105,7 +98,7 @@ BN.addDecl('category').onSetMod({
                 },
                 {
                     elem: 'button',
-                    content: hasBack? 'Сохранить и вернуться' : 'Начать читать'
+                    content: hasBack? 'Сохранить' : 'Начать читать'
                 }
             ]
         },

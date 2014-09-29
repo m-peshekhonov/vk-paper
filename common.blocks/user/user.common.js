@@ -7,7 +7,7 @@ BN.addDecl('user').onSetMod({
         var json = ctx.json(),
             data = json.data;
 
-        return [
+        ctx.content([
             {
                 block: 'image',
                 mix: { block: 'user', elem: 'avatar' },
@@ -28,7 +28,7 @@ BN.addDecl('user').onSetMod({
                     }
                 ]
             }
-        ]
+        ]);
     }
 }).instanceProp({
     loadInfo: function() {
@@ -38,7 +38,6 @@ BN.addDecl('user').onSetMod({
                     elem: 'inner',
                     data: data[0]
                 };
-
             BN('i-content').update(this.domElem, info);
         }.bind(this)).fail(function(err) {
             console.log('fail userinfo');

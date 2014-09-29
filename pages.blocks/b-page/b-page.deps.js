@@ -3,7 +3,8 @@
         { block: 'i-global' },
         { block: 'i-router' },
         { block: 'i-collage' },
-        { block: 'i-category' }
+        { block: 'i-category' },
+        { block: 'i-user' }
     ],
     shouldDeps: [
         // data blocks

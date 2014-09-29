@@ -24,8 +24,8 @@ BN.addDecl('i-page').staticProp({
         return {
             block: 'b-page',
             content: {
-                block: 'content',
-                content: json
+                block: 'main',
+                data: json
             }
         };
     },

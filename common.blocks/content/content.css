@@ -3,3 +3,16 @@
     width: 1000px;
     margin: 55px auto 0;
 }
+
+/*.content__left-inner
+{
+    width: 205px;
+}
+
+.content__left-inner,
+.main
+{
+    display: inline-block;
+    vertical-align: top
+}
+*/

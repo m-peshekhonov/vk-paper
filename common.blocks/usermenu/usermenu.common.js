@@ -3,13 +3,13 @@ BN.addDecl('usermenu').onSetMod({
         var _this = this;
 
         this._menu = this.findBlockInside('menu');
-        this._matcher = this.params.matchers[2].replace('/', '') || 'feed';
+        // this._matcher = this.params.matchers[2].replace('/', '') || 'feed';
 
-        this._setActivePage();
+        // this._setActivePage();
 
-        BEM.channel('i-router').on('update', function() {
-            _this._setActivePage();
-        });
+        // BEM.channel('i-router').on('update', function() {
+        //     _this._setActivePage();
+        // });
     }
 }).instanceProp({
     _setActivePage: function () {

@@ -48,7 +48,7 @@
     overflow: hidden;
 
     max-width: 140px;
-    margin: 3px 0 4px;
+    margin-top: 5px;
 
     white-space: nowrap;
     text-overflow: ellipsis;

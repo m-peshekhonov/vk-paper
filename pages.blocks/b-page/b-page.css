@@ -1,4 +1,4 @@
-@import "http://webfonts.ru/import/aleo.css";
+@import 'http://webfonts.ru/import/aleo.css';
 
 *
 {
@@ -7,12 +7,12 @@
 
 .b-page
 {
-
-    background: #f7f7f7;
     font: 13px/18px 'Lucida Sans Unicode', Arial, Helvetica, Verdana, sans-serif;
 
     margin: 0;
     padding: 0;
+
+    background: #f7f7f7;
 }
 
 .b-page_login_no .header__search,
@@ -23,19 +23,20 @@
 
 .b-page_login_no
 {
-    background: #E5E9EC;
     min-width: 940px;
+
+    background: #e5e9ec;
 }
 
 .b-page_login_no .header
 {
-
-    background: rgba(52, 73, 94, .65);
-    box-shadow: none;
-    margin: -17px auto 0;
     position: relative;
 
     width: 80%;
+    margin: -17px auto 0;
+
+    background: rgba(52, 73, 94, .65);
+    box-shadow: none;
 }
 
 .b-page_login_no .header__inner
@@ -50,8 +51,8 @@
 
 .b-page_login_no .content
 {
-    margin-top: 0;
     width: 100%;
+    margin-top: 0;
 }
 
 .b-page_category_yes .header
@@ -62,12 +63,8 @@
 .b-page_category_yes .header__menu
 {
     float: right;
-    margin-top: 15px;
-}
 
-.b-page_category_yes .header__logo
-{
-    margin: 17px 0 20px 0;
+    margin-top: 15px;
 }
 
 .b-page_category_yes .header__search,
@@ -76,7 +73,15 @@
     display: none;
 }
 
-.b-page_cat-back_yes .header__menu
+.b-page_login_no .main__left,
+.b-page_login_no .main__right
 {
-    margin-left: 337px;
+    display: none;
+}
+
+.b-page_login_no .main__center,
+.b-page_login_no .main
+{
+    width: 100%;
+    margin-top: 0;
 }

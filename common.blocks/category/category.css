@@ -2,7 +2,13 @@
 {
     font-family: 'Neue';
 
+    margin-top: -7px;
+    padding: 10px 10px 5px;
+
     text-align: center;
+
+    background: #fff;
+    box-shadow: 0 0 0 2px #e6e8eb;
 }
 
 .category__inner
@@ -12,13 +18,13 @@
 
 .category__top
 {
-    padding: 20px 5px 15px;
+    padding: 5px;
 }
 
 .category__title,
 .category__title-link
 {
-    font-size: 26px;
+    font-size: 20px;
 
     float: left;
 
@@ -36,32 +42,32 @@
 
 .category__title-link
 {
-    padding-left: 22px;
+    padding-left: 20px;
 }
 
 .category__title-link:before
 {
-    font-size: 65px;
+    font-size: 60px;
 
     position: absolute;
 
     margin-top: -1px;
-    margin-left: -25px;
+    margin-left: -22px;
 
     content: '‹';
 }
 
 .category__item
 {
-    font-size: 20px;
+    font-size: 18px;
 
     position: relative;
 
     display: inline-block;
     overflow: hidden;
 
-    width: 240px;
-    height: 165px;
+    width: 127px;
+    height: 117px;
     margin: 5px;
 
     cursor: pointer;
@@ -86,12 +92,13 @@
 
     width: 100%;
     height: 100%;
-    padding: 20px 0 0 20px;
+    padding: 20px 0 0 0;
 
     -webkit-transition: .3s;
        -moz-transition: .3s;
          -o-transition: .3s;
             transition: .3s;
+    text-align: center;
 
     background-color: rgba(0, 0, 0, .2);
     background-position: 46% 40%;
@@ -114,13 +121,14 @@
 
 .category__button
 {
-    font-size: 26px;
+    font-size: 20px;
 
     position: relative;
 
     float: right;
 
-    padding: 20px 38px;
+    margin-top: 9px;
+    padding: 11px 20px 10px;
 
     cursor: default;
     -webkit-transition: .2s;
@@ -131,7 +139,7 @@
     text-decoration: none;
 
     color: #fff;
-    border-radius: 5px;
+    border-radius: 4px;
     background: #7f8c8d;
 }
 

@@ -1,5 +1,6 @@
 BN.addDecl('main').blockTemplate(function(ctx) {
-    var json = ctx.json();
+    var json = ctx.json(),
+        data = json.data;
 
     ctx.js(true);
 
@@ -22,10 +23,7 @@ BN.addDecl('main').blockTemplate(function(ctx) {
             },
             {
                 elem: 'center',
-                content: {
-                    block: 'feed',
-                    js: { source: json.js.source } // названия категорий (групп,страниц)
-                }
+                content: data
             },
             {
                 elem: 'right',

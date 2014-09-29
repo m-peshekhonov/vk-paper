@@ -10,7 +10,7 @@ BN.addDecl('page-feed', 'page', {
         if(!feed) hash = 'user';
 
         return this.out({
-            block: 'main',
+            block: 'feed',
             js: { source: hash }
         });
     }

@@ -4,6 +4,7 @@ BN.addDecl('feed').onSetMod({
             paramsSource = this.params.source;
 
         this._page = this.findBlockOutside('b-page');
+        this._loader = this._page.findBlockInside('loader');
         this._source = [];
 
         this._page.setMod('feed', 'yes');
@@ -57,7 +58,7 @@ BN.addDecl('feed').onSetMod({
     },
 
     firstLoad: function(force) {
-        this._page.setMod('loading', 'yes');
+        this._loader.setMod('loading', 'yes');
 
         this.loadPortion(null, force, this._source);
     },
@@ -95,14 +96,14 @@ BN.addDecl('feed').onSetMod({
             BN('i-content')[action](this.domElem, news);
 
             setTimeout(function () {
-                this._page.delMod('loading');
-            }.bind(this), 250);
+                this._loader.delMod('loading');
+            }.bind(this), 300);
 
             this._afterLoad(data.next_from);
 
         }.bind(this)).fail(function(err) {
             console.log('fail feed');
-            this._page.delMod('loading');
+            this._loader.delMod('loading');
         }.bind(this));
 
     },

@@ -6,6 +6,6 @@ BN.addDecl('i-page').staticProp({
      * override
      */
     getUpdateNode: function() {
-        return jQuery('.content');
+        return jQuery('.main__center');
     }
 });
