@@ -7,6 +7,12 @@
         { block: 'i-user' }
     ],
     shouldDeps: [
+        {
+            mods: {
+                category: 'yes',
+                login: ['no', 'yes']
+            }
+        },
         // data blocks
         { block: 'i-cookie' },
         { block: 'i-vk' },

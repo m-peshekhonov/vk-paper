@@ -1,0 +1,52 @@
+.b-page_login_no .header__search,
+.b-page_login_no .header__menu
+{
+    display: none;
+}
+
+.b-page_login_no
+{
+    min-width: 940px;
+
+    background: #e5e9ec;
+}
+
+.b-page_login_no .header
+{
+    position: relative;
+
+    width: 80%;
+    margin: -17px auto 0;
+
+    background: rgba(52, 73, 94, .65);
+    box-shadow: none;
+}
+
+.b-page_login_no .header__inner
+{
+    width: 85%;
+}
+
+.b-page_login_no .header__logo
+{
+    margin: 33px 0 21px;
+}
+
+.b-page_login_no .content
+{
+    width: 100%;
+    margin-top: 0;
+}
+
+.b-page_login_no .main__left,
+.b-page_login_no .main__right
+{
+    display: none;
+}
+
+.b-page_login_no .main__center,
+.b-page_login_no .main
+{
+    width: 100%;
+    margin-top: 0;
+}
