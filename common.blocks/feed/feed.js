@@ -7,6 +7,9 @@ BN.addDecl('feed').onSetMod({
         this._loader = this._page.findBlockInside('loader');
         this._source = [];
 
+        if (this._page.hasMod('category', 'yes')) {
+            this._page.delMod('category');
+        }
         this._page.setMod('feed', 'yes');
 
         /* Если зашли на страницу /feed/, то достаем названия выбранных юзером категорий из VK Storage.

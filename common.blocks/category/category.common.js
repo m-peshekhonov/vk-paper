@@ -65,9 +65,8 @@ BN.addDecl('category').onSetMod({
         if (this.hasMod(this.elem('button'), 'active', 'yes')) {
             BN('api-vk').setStorage(this._source); // Сохраняем в VK Storage
             localStorage.setItem('VKSource', this._source); // Сохраняем в Local Storage
-            BN('i-router').setPath('/feed');
 
-            this._page.delMod('category');
+            BN('i-router').setPath('/feed');
         } else {
             this.elem('title').animate({marginLeft:'-=5'},  50)
                 .animate({marginLeft:'+=10'}, 70)
