@@ -38,6 +38,7 @@
         { block: 'recommends' },
         { block: 'source-block' },
         { block: 'share' },
-        { block: 'loader' }
+        { block: 'loader' },
+        { block: 'popup' }
     ]
 })

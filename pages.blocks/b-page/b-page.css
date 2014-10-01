@@ -14,3 +14,8 @@
 
     background: #f7f7f7;
 }
+
+.b-page_overflow_yes
+{
+    overflow: hidden;
+}

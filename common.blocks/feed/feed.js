@@ -70,9 +70,10 @@ BN.addDecl('feed').onSetMod({
         BN('api-vk')._getPosts(url, source).then(function(data) {
             var news = [],
                 items = data.items,
-                action = force ? 'update' : 'append';
+                action = force ? 'update' : 'append',
+                groupsData = data.groups;
 
-            data.groups.forEach(function(gItem) {
+            groupsData && groupsData.forEach(function(gItem) {
 
                 items.forEach(function(item) {
                     var itemGID = String(item.source_id).slice(1);
@@ -87,9 +88,12 @@ BN.addDecl('feed').onSetMod({
 
             });
 
+            items = items.filter(function (item) {
+                return (typeof item.copy_history !== 'object');
+            });
+
             var news = items.map(function(item, pos) {
                 pos === 0 && (item.isFirst = true);
-
                 return {
                     block: 'box',
                     data: item

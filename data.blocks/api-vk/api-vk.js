@@ -58,6 +58,13 @@ BN.addDecl('api-vk').staticProp({
         return this._request(url);
     },
 
+    // поиск новостей
+    _searchPosts: function(next_url, query) {
+        var url = this._apiHost + 'newsfeed.search?count=10&start_from=' + next_url + '&q=' + query;
+
+        return this._request(url);
+    },
+
     // подробная информация о сообществе
     _groupInfo: function(groupIds) {
         var url = this._apiHost + 'groups.getById?group_ids=' + groupIds;

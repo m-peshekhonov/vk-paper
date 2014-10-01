@@ -13,9 +13,12 @@ BN.addDecl('usermenu').onSetMod({
         this._setActivePage();
 
         BEM.channel('i-router').on('update', function() {
-            _this._matcher = BN('i-router').getMatchers()[2].replace('/', '') || 'feed';
+            var mathers = BN('i-router').getMatchers()[2];
+            if(mathers) {
+                _this._matcher = mathers.replace('/', '') || 'feed';
 
-            _this._setActivePage();
+                _this._setActivePage();
+            }
         });
     }
 }).instanceProp({
