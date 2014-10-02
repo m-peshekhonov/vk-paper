@@ -6,6 +6,7 @@ BN.addDecl('feed').onSetMod({
         this._page = this.findBlockOutside('b-page');
         this._loader = this._page.findBlockInside('loader');
         this._source = [];
+        this.picsArray = [];
 
         if (this._page.hasMod('category', 'yes')) {
             this._page.delMod('category');
@@ -68,7 +69,8 @@ BN.addDecl('feed').onSetMod({
     loadPortion: function(url, force, source) {
 
         BN('api-vk')._getPosts(url, source).then(function(data) {
-            var news = [],
+            var _this = this,
+                news = [],
                 items = data.items,
                 action = force ? 'update' : 'append',
                 groupsData = data.groups;
@@ -93,6 +95,12 @@ BN.addDecl('feed').onSetMod({
             });
 
             var news = items.map(function(item, pos) {
+                item.attachments && item.attachments.forEach(function (item) {
+                    if(item.type == 'photo') {
+                        _this.picsArray.push(item.photo);
+                    }
+                });
+
                 pos === 0 && (item.isFirst = true);
                 return {
                     block: 'box',

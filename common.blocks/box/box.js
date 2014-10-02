@@ -31,10 +31,12 @@ BN.addDecl('box').onSetMod({
             e.preventDefault();
 
             var picSrc = e.target.src,
+                elemParams = this.elemParams(e.data.domElem),
                 params = {
                     src: picSrc,
-                    width: this.elemParams(e.data.domElem).width,
-                    height: this.elemParams(e.data.domElem).height
+                    width: elemParams.width,
+                    height: elemParams.height,
+                    id: elemParams.id,
                 };
 
             BN('i-content').append(page.domElem, [{
@@ -182,7 +184,11 @@ BN.addDecl('box').onSetMod({
                             mix: {
                                 block: 'box',
                                 elem: 'post-image',
-                                js: { width: item.photo.width, height: item.photo.height }
+                                js: {
+                                    width: item.photo.width,
+                                    height: item.photo.height,
+                                    id: item.photo.id
+                                }
                             },
                             src: item.photo.photo_1280 || item.photo.photo_807 || item.photo.photo_604
                         } : [{

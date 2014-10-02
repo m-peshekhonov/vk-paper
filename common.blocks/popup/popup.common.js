@@ -1,10 +1,21 @@
 BN.addDecl('popup').onSetMod({
     js: function() {
         var _this = this;
-            picParams = this.params.picParams;
+            picParams = this.elemParams(this.elem('inner')).picParams;
 
         this._page = this.findBlockOutside('b-page');
         this._paranja = this._page.findBlockInside('paranja');
+
+        this._picsArray = this._page.findBlockInside('feed').picsArray;
+        this._currentPicId = picParams.id;
+
+        this._picsArray.forEach(function(item, pos) {
+            if (item.id == _this._currentPicId) {
+                _this._currentPicPos = pos;
+
+                return;
+            }
+        });
 
         this.setMod('show', 'yes');
         this._page.setMod('overflow', 'yes');
@@ -16,11 +27,52 @@ BN.addDecl('popup').onSetMod({
             BEM.DOM.doc.unbind('keyup');
         }.bind(this));
 
-        this.bindTo('close', 'click', function () {
-            _this._destroy();
+    }
+}).staticProp({
+    live: function () {
+        this.liveBindTo('image', 'click', function () {
+            this.nextPic();
         });
+
+        this.liveBindTo('close', 'click', function () {
+            this._destroy();
+        });
+
+        return false;
     }
 }).instanceProp({
+    nextPic: function () {
+        var nextPos = this._currentPicPos + 1,
+            nextPic = this._picsArray[nextPos];
+
+        if(!nextPic) {
+            this._destroy();
+
+            return;
+        }
+
+        this._currentPicPos++;
+
+        this._showNextPic(nextPic);
+    },
+
+    _showNextPic: function (picture) {
+        BN('i-content').update(this.domElem, [
+            {
+                block: 'popup',
+                elem: 'close'
+            },
+            {
+                block: 'popup',
+                elem: 'inner',
+                data: picture
+            }
+        ]).always(function() {
+            this.resizeImage(picture);
+        }.bind(this));
+
+    },
+
     resizeImage: function (picParams) {
         var pw = picParams.width,
             ph = picParams.height;
@@ -53,12 +105,12 @@ BN.addDecl('popup').onSetMod({
         newPH = Math.round(newPH);
         newPW = Math.round(newPW);
 
-        this.elem('image').css({
+        this.findElem('image').css({
             height: newPH,
             width: newPW
         });
 
-        this.elem('inner').css({
+        this.findElem('inner').css({
             height: newPH + paddingsInner,
             width: newPW + paddingsInner,
             'marginTop': (wh - (newPH + paddingsInner)) / 2
@@ -73,7 +125,7 @@ BN.addDecl('popup').onSetMod({
 }).blockTemplate(function(ctx) {
     var data = ctx.json().data;
 
-    ctx.js({ picParams: data });
+    ctx.js(true);
 
     ctx.content([
         {
@@ -81,18 +133,27 @@ BN.addDecl('popup').onSetMod({
         },
         {
             elem: 'inner',
-            content: {
+            data: data
+        }
+    ]);
+
+}).elemTemplate({
+    'inner': function (ctx) {
+        var data = ctx.json().data;
+        ctx.js({ picParams: data });
+
+        ctx.content([
+            {
                 elem: 'content',
                 content: {
                     elem: 'photo',
                     content: {
                         block: 'picture',
                         mix: { block: 'popup', elem: 'image' },
-                        src: data.src
+                        src: data.src || data.photo_1280 || data.photo_807 || data.photo_604
                     }
                 }
             }
-        }
-    ]);
-
+        ])
+    }
 });

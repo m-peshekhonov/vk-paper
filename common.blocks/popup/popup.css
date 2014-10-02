@@ -87,3 +87,8 @@
 {
     opacity: 1;
 }
+
+.popup__image
+{
+    cursor: pointer;
+}
