@@ -182,7 +182,7 @@ BN.addDecl('category').onSetMod({
                 {
                     elem: 'item',
                     mods: { type: 'photos' },
-                    title: 'Фото и Видео'
+                    title: 'Фотография'
                 }
             ]
         }

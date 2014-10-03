@@ -60,7 +60,7 @@ BN.addDecl('api-vk').staticProp({
 
     // поиск новостей
     _searchPosts: function(next_url, query) {
-        var url = this._apiHost + 'newsfeed.search?count=10&start_from=' + next_url + '&q=' + query;
+        var url = this._apiHost + 'newsfeed.search?fields=photo_100&count=10&start_from=' + next_url + '&q=' + query;
 
         return this._request(url);
     },

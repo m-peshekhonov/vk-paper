@@ -1,15 +1,18 @@
 {
-    "name": "bem-node-hello-world",
-    "version": "0.0.1",
+    "name": "vkpaper",
+    "version": "0.0.1-10",
+    "subdomain": "vkpaper",
     "dependencies": {
         "bem-node": "0.8.7",
         "enb": "0.8.43",
-        "enb-bemhtml": "0.2.1"
+        "enb-bemhtml": "*",
+        "node-static": "*",
+        "request": "*"
+    },
+    "scripts": {
+        "start": "node app/vkpaper/vkpaper.server.js --socket 3000"
     },
     "engines": {
         "node": ">= 0.8.0"
-    },
-    "scripts": {
-        "start": "make && node app/paper/paper.server.js --socket 3000"
     }
 }

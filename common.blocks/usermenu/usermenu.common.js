@@ -147,7 +147,7 @@ BN.addDecl('usermenu').onSetMod({
                         url: '/feed/photos/',
                         mods: { type: 'photos' },
                         icon: 'picture',
-                        content: 'Фото и видео'
+                        content: 'Фотография'
                     }
                 ]
             }

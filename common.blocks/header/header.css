@@ -24,7 +24,7 @@
 
 .header__inner
 {
-    width: 1000px;
+    width: 905px;
     margin: auto;
 
     white-space: nowrap;
@@ -41,7 +41,7 @@
 
 .header__menu
 {
-    margin-left: 106px;
+    margin-left: 462px;
 
     list-style: none;
 }
@@ -99,6 +99,8 @@
 .header__search
 {
     position: relative;
+
+    display: none;
 }
 
 .header__search:before

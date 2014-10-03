@@ -65,6 +65,9 @@ BN.addDecl('box').onSetMod({
             if(item.type == 'photo') {
                 attach.isPhoto = true;
             }
+            if(item.type == 'video') {
+                attach.isVideo = true;
+            }
             if(item.type == 'album') {
                 attach.isAlbum = true;
             }
@@ -75,9 +78,6 @@ BN.addDecl('box').onSetMod({
             if(item.type == 'doc') {
                 attach.isDoc = true;
                 docs.push(item);
-            }
-            if(item.type == 'video') {
-                attach.isVideo = true;
             }
 
         });
@@ -134,7 +134,7 @@ BN.addDecl('box').onSetMod({
                         }
                     ]
                 },
-                (attach.isVideo || attach.isPhoto) && {
+                attach.isPhoto && {
                     elem: 'images',
                     data: data.attachments
                 },
@@ -172,14 +172,13 @@ BN.addDecl('box').onSetMod({
             elem: 'images-inner',
             content: [
                 data.map(function(item) {
-                    var isPhoto = item.type === 'photo',
-                        isVideo = item.type === 'video';
+                    var isPhoto = item.type === 'photo';
 
-                    return (isPhoto || isVideo) && {
+                    return isPhoto && {
                         block: 'link',
                         mix: { block: 'box', elem: 'photo-wrapper', mods: { type: isPhoto ? 'photo' : 'video' } },
                         url: isPhoto && (item.photo.photo_807 || item.photo.photo_604) || '#',
-                        content: item.type === 'photo' ? {
+                        content: {
                             block: 'picture',
                             mix: {
                                 block: 'box',
@@ -191,16 +190,7 @@ BN.addDecl('box').onSetMod({
                                 }
                             },
                             src: item.photo.photo_1280 || item.photo.photo_807 || item.photo.photo_604
-                        } : [{
-                                block: 'picture',
-                                mix: { block: 'box', elem: 'post-image'},
-                                src: item.video.photo_640 || item.video.photo_320
-                            },
-                            {
-                                block: 'box',
-                                elem: 'video-control'
-                            }
-                        ]
+                        }
                     };
                 })
             ]

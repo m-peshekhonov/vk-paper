@@ -1,6 +1,6 @@
 .main
 {
-    width: 1000px;
+    width: 905px;
     margin: 55px auto 0;
 }
 
@@ -20,8 +20,8 @@
     position: relative;
     z-index: 2;
 
-    width: 570px;
-    margin-right: 20px;
+    width: 700px;
+    /*margin-right: 20px;*/
 }
 
 .main__right

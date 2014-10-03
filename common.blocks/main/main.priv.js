@@ -15,21 +15,22 @@ BN.addDecl('main').blockTemplate(function(ctx) {
                             js: true
                         },
                         {
-                            block: 'usermenu'                        }
+                            block: 'usermenu'
+                        }
                     ]
                 }
             },
             {
                 elem: 'center',
                 content: data
-            },
-            {
-                elem: 'right',
-                content: {
-                    block: 'recommends',
-                    js: true
-                }
             }
+            // {
+            //     elem: 'right',
+            //     content: {
+            //         block: 'recommends',
+            //         js: true
+            //     }
+            // }
     ]);
 
 });

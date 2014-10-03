@@ -17,3 +17,14 @@ install::
 .PHONY: rebuild
 rebuild::
 	./node_modules/enb/bin/enb make
+
+#rebuild project and use development configs
+.PHONY: dev
+dev::
+	YENV=development ./node_modules/enb/bin/enb make
+
+#rebuild project and use productions configs
+.PHONY: prod
+prod::
+	YENV=production ./node_modules/enb/bin/enb make
+
