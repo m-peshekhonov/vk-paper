@@ -1,6 +1,6 @@
 ({
     mustDeps: [
-        { block: 'i-global', elems: ['config'] },
+        { block: 'i-global' },
         { block: 'i-router' },
         { block: 'i-collage' },
         { block: 'i-category' },

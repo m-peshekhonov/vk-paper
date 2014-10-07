@@ -2,14 +2,15 @@
 {
     position: fixed;
     top: 48px;
-    left: 2px;
+    left: 50%;
 
     z-index: 10;
 
     visibility: hidden;
 
-    width: 100%;
+    width: 566px;
     height: 100%;
+    margin-left: -293px;
 
     -webkit-transition: .3s;
        -moz-transition: .3s;
@@ -17,7 +18,7 @@
             transition: .3s;
 
     opacity: 0;
-    background: rgba(255, 255, 255, .9);
+    background: rgba(255, 255, 255, .85);
 }
 
 .loader_loading_yes

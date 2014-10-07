@@ -41,19 +41,15 @@ BN.addDecl('login').blockTemplate(function(ctx) {
                                 },
                                 {
                                     elem: 'performance-item',
-                                    content: 'Лучшие сообщества ВКонтакте собраны по категориям'
+                                    content: 'Более 300 лучших сообществ собраны по категориям'
                                 },
                                 {
                                     elem: 'performance-item',
-                                    content: 'Возможность читать сразу несколько категорий новостей'
+                                    content: 'Волшебный алгоритм отображения картинок'
                                 },
                                 {
                                     elem: 'performance-item',
-                                    content: 'Волшебный алгоритм отрисовки картинок'
-                                },
-                                {
-                                    elem: 'performance-item',
-                                    content: 'Практически моментальная обработка и отображение новостей'
+                                    content: 'Новости можно читать без логина ВКонтакте'
                                 },
                                 {
                                     elem: 'start',
